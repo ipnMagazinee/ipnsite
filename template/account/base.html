@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load sass_tags %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {# Meta for devices #}
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>IpnMagazine</title>
+    {# Google fonts #}
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Oswald|Stylish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300|Stylish&display=swap" rel="stylesheet">
+    {# Sass #}
+    <link href="{% sass_src 'scss/base.scss' %}" rel="stylesheet" type="text/css" />
+    <link href="{% sass_src 'scss/account.scss' %}" rel="stylesheet" type="text/css" />
+</head>
+<body class="dfc clm">
+    <section class="dfc clm"> <!-- Account content-->
+        <div class="logo dfc clm">
+            <div class="logo-img dfc fdrowr">
+                <img src="{% static 'img/logo.png' %}">
+            </div>
+            <div class="logo-text dfc fdrow">
+               <span>communication</span>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </section>
+    <aside>
+        <span id="id_message"></span>
+    </aside>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'js/base.js' %}"></script>
+<script src="{% static 'js/account.js' %}"></script>
+</html>

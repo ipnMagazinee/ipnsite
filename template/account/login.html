@@ -1,0 +1,16 @@
+
+{% extends 'account/base.html' %}
+
+{% block content %}
+    <div class="account dfc clm">
+    <span class="account-tittle">Login</span>
+        <form action="{% url 'account:login' %}" method="POST" id="id_login_form" spellcheck="false">
+            {% csrf_token %}
+            {{ form.name }}
+            {{ form.password }}
+            <button type="button" id="btn_login">Login</button>
+        </form>
+        <span class="txt"><a href="{% url 'account:signUp' %}">Sign up</a></span>
+        <span class="txt">Forget my password</span>
+    </div>
+{% endblock %}

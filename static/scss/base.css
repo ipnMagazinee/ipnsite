@@ -1,0 +1,59 @@
+.dn {
+  display: none; }
+
+.dfc {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.aic {
+  align-items: center; }
+
+.clm {
+  flex-direction: column; }
+
+.row {
+  flex-direction: row; }
+
+.fdrow {
+  flex-direction: row; }
+
+.fdrowr {
+  flex-direction: row-reverse; }
+
+/********************************************************************************
+  Mixin
+********************************************************************************/
+/***********************************************************************************
+Effects
+ **********************************************************************************/
+.blur {
+  filter: blur(5px);
+  -webkit-filter: blur(5px); }
+
+/***********************************************************************************
+Message
+**********************************************************************************/
+.msg-error, .msg-success {
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  border: 0px;
+  margin: 10px;
+  padding: 5px 15px; }
+
+.msg-success {
+  background-color: #d4efdf;
+  color: #52be80;
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif; }
+
+.msg-error {
+  background-color: #f2d7d5;
+  color: #cd6155;
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif; }
+
+/*# sourceMappingURL=base.css.map */

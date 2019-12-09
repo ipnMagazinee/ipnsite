@@ -1,0 +1,9 @@
+
+{# contains the list of areas and departments #}
+<div class="list dfc clm" id="{{ list_name }}">
+    {% for object in object_list %}
+        <span class="{{ item_name }}" id="{{ object.id }}">{{ object.name }}</span>
+        <div class="line"></div>
+    {% endfor %}
+</div>
+

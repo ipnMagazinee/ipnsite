@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load sass_tags %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Title</title>
+    {# Google fonts #}
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Oswald|Stylish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300|Stylish&display=swap" rel="stylesheet">
+    {# Sass #}
+    <link href="{% sass_src 'scss/base.scss' %}" rel="stylesheet" type="text/css" />
+    <link href="{% sass_src 'scss/home.scss' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    {{ profile.name }}
+</header>
+{% block content %}
+{% endblock %}
+</body>
+</html>

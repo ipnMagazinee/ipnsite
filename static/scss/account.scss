@@ -1,0 +1,141 @@
+
+@import "base.scss";
+
+html, body{
+  margin: 0px;
+  padding: 0px;
+  @include size(100%, 100%);
+  background-color: $bg-color;
+}
+
+// account.js section
+section {
+  @include size(25%, 85%);
+  background-color: white;
+  border-radius: 10px;
+  transition: all 500ms;
+}
+
+.tittle{
+  font-size: 2em;
+  @include font1;
+  color: rgb(128, 139, 150 );
+}
+
+/*
+  Account styles
+*/
+.logo{
+  @include size(80%, auto);
+  margin: 0px 0px 15px 0px;
+  &-text{
+    @include size(100%, auto);
+    color: rgb(0,149,58);
+    span{
+      font-size: 1.5em;
+      @include font1;
+    }
+
+  }
+  &-img{
+    @include size(100%, auto);
+    img{
+      @include size(30px, 30px);
+    }
+  }
+}
+.account {
+  @include size(70%, auto);
+  input {
+    @include size(90%, 30px);
+    margin: 5px 0px;
+    padding: 0px 10px;
+    border: 1px solid rgb(171, 178, 185);
+    border-radius: 10px;
+    @include font2;
+    font-size: 1em;
+    outline: 0px;
+  }
+  button {
+    @include size(95%, 35px);
+    margin: 5px 0px;
+    padding: 0px 10px;
+    background-color: $gda-color;
+    border: 1px solid $gda-color;
+    border-radius: 10px;
+    color: white;
+    outline: 0px;
+
+    &:active {
+      background-color: rgb(170, 183, 184);
+      border: 1px solid rgb(170, 183, 184);
+    }
+  }
+  img{
+    @include size(30px, 30px);
+    margin: 0px 5px;
+  }
+  &-tittle {
+    font-size: 2em;
+    @include font2;
+  }
+  .txt {
+    @include font2;
+    color: rgb(93, 109, 126);
+
+    &:hover {
+      color: rgb(112, 28, 69);
+      cursor: pointer;
+    }
+
+  }
+  .sld{
+    color: rgb(171, 178, 185);
+  }
+}
+.list{
+  margin: 0px;
+  padding: 20px 0px;
+  @include size(22%, 40%);
+  background-color: white;
+  border: 1px solid rgb(171, 178, 185);
+  border-radius: 10px;
+  position: fixed;
+  z-index: 2;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 400px;
+  span{
+    @include size(90%, 50px);
+    padding: 0px 10px;
+    @include font1;
+    border-radius: 10px;
+    &:hover{
+      background-color: rgb(213, 216, 220);
+    }
+    &:active{
+      background-color: $gda-color;
+      color: white;
+    }
+  }
+}
+.line{
+  @include size(90%, 1px);
+  background-color: $gray1;
+}
+/*
+  Login media
+*/
+@media screen and (max-device-width : 480px) {
+  section{
+    @include size(95%, 95%);
+    background-color: white;
+    border-radius: 10px;
+  }
+  .list{
+    @include size(80%, auto);
+    padding: 30px 0px;
+  }
+}
+

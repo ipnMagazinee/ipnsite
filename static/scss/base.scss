@@ -1,0 +1,90 @@
+
+$bg-color: rgb(214, 219, 223);
+$gda-color: rgb(112, 28, 69);
+$gray1: rgb(171, 178, 185);
+
+.dn{
+  display: none;
+}
+
+.dfc{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aic{
+  align-items: center;
+}
+
+.clm{
+  flex-direction: column;
+}
+
+.row{
+  flex-direction: row;
+}
+
+.fdrow{
+  flex-direction: row;
+}
+
+.fdrowr{
+  flex-direction: row-reverse;
+}
+
+/********************************************************************************
+  Mixin
+********************************************************************************/
+
+// set width and height
+@mixin size($w, $h){
+  width: $w;
+  height: $h;
+}
+
+@mixin font1{
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Oswald', sans-serif;
+}
+
+@mixin font2{
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+/***********************************************************************************
+Effects
+ **********************************************************************************/
+
+// Generate cristal effect
+.blur{
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
+/***********************************************************************************
+Message
+**********************************************************************************/
+%msg{
+  @include size(auto, auto);
+  border-radius: 10px;
+  border: 0px;
+  margin: 10px;
+  padding: 5px 15px;
+}
+.msg{
+  &-success{
+    @extend %msg;
+    background-color: rgb(212, 239, 223);
+    color: rgb(82, 190, 128 );
+    @include font2;
+  }
+  &-error{
+    @extend %msg;
+    background-color: rgb(242, 215, 213);
+    color: rgb(205, 97, 85);
+    @include font2;
+  }
+}

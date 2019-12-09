@@ -1,0 +1,198 @@
+.dn {
+  display: none; }
+
+.dfc {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.aic {
+  align-items: center; }
+
+.clm {
+  flex-direction: column; }
+
+.row {
+  flex-direction: row; }
+
+.fdrow {
+  flex-direction: row; }
+
+.fdrowr {
+  flex-direction: row-reverse; }
+
+/********************************************************************************
+  Mixin
+********************************************************************************/
+/***********************************************************************************
+Effects
+ **********************************************************************************/
+.blur {
+  filter: blur(5px);
+  -webkit-filter: blur(5px); }
+
+/***********************************************************************************
+Message
+**********************************************************************************/
+.msg-error, .msg-success {
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  border: 0px;
+  margin: 10px;
+  padding: 5px 15px; }
+
+.msg-success {
+  background-color: #d4efdf;
+  color: #52be80;
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif; }
+
+.msg-error {
+  background-color: #f2d7d5;
+  color: #cd6155;
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif; }
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #d6dbdf; }
+
+section {
+  width: 25%;
+  height: 85%;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 500ms; }
+
+.tittle {
+  font-size: 2em;
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  color: #808b96; }
+
+/*
+  Account styles
+*/
+.logo {
+  width: 80%;
+  height: auto;
+  margin: 0px 0px 15px 0px; }
+  .logo-text {
+    width: 100%;
+    height: auto;
+    color: #00953a; }
+    .logo-text span {
+      font-size: 1.5em;
+      font-family: 'Lobster', cursive;
+      font-family: 'Stylish', sans-serif;
+      font-family: 'Oswald', sans-serif; }
+  .logo-img {
+    width: 100%;
+    height: auto; }
+    .logo-img img {
+      width: 30px;
+      height: 30px; }
+
+.account {
+  width: 70%;
+  height: auto; }
+  .account input {
+    width: 90%;
+    height: 30px;
+    margin: 5px 0px;
+    padding: 0px 10px;
+    border: 1px solid #abb2b9;
+    border-radius: 10px;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+    outline: 0px; }
+  .account button {
+    width: 95%;
+    height: 35px;
+    margin: 5px 0px;
+    padding: 0px 10px;
+    background-color: #701c45;
+    border: 1px solid #701c45;
+    border-radius: 10px;
+    color: white;
+    outline: 0px; }
+    .account button:active {
+      background-color: #aab7b8;
+      border: 1px solid #aab7b8; }
+  .account img {
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px; }
+  .account-tittle {
+    font-size: 2em;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif; }
+  .account .txt {
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #5d6d7e; }
+    .account .txt:hover {
+      color: #701c45;
+      cursor: pointer; }
+  .account .sld {
+    color: #abb2b9; }
+
+.list {
+  margin: 0px;
+  padding: 20px 0px;
+  width: 22%;
+  height: 40%;
+  background-color: white;
+  border: 1px solid #abb2b9;
+  border-radius: 10px;
+  position: fixed;
+  z-index: 2;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 400px; }
+  .list span {
+    width: 90%;
+    height: 50px;
+    padding: 0px 10px;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 10px; }
+    .list span:hover {
+      background-color: #d5d8dc; }
+    .list span:active {
+      background-color: #701c45;
+      color: white; }
+
+.line {
+  width: 90%;
+  height: 1px;
+  background-color: #abb2b9; }
+
+/*
+  Login media
+*/
+@media screen and (max-device-width: 480px) {
+  section {
+    width: 95%;
+    height: 95%;
+    background-color: white;
+    border-radius: 10px; }
+  .list {
+    width: 80%;
+    height: auto;
+    padding: 30px 0px; } }
+
+/*# sourceMappingURL=account.css.map */
