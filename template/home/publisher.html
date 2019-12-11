@@ -1,6 +1,17 @@
 
+{# List of publications #}
+
 {% extends 'home/base.html' %}
 
+{% load static %}
+
 {% block content %}
-<p>Hello publisher</p>
+
+{% for object in object_list %}
+    <p>{{ object.tittle }}</p>
+{% endfor %}
+<img class="btn_add" src="{% static 'img/btn_add.png' %}"
+     data-url="{% url 'home:get_new_publication' %}"
+     data-id-publisher="{{ profile.id }}" {# publiser id #}
+     id="btn-new-pub">
 {% endblock %}

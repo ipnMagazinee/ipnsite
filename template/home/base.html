@@ -16,10 +16,28 @@
     <link href="{% sass_src 'scss/home.scss' %}" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<header>
-    {{ profile.name }}
+<header class="dfc drowr">
+    <div class="logo df aic">
+        <img src="{% static 'img/logo.png' %}">
+        <span>Communication</span>
+    </div>
+    <div class="data dfc">
+        <img src="{% static 'img/logo_ipn.png' %}">
+        <span>{{ profile.name }}</span>
+        {% if profile.image %}
+            <img src="{{ profile.image.url }}">
+        {% else %}
+            <img src="{% static 'img/profile.png' %}">
+        {% endif %}
+    </div>
+    {% csrf_token %}
 </header>
-{% block content %}
-{% endblock %}
+<section class="dfc clm">
+    {% block content %}
+    {% endblock %}
+</section>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'js/base.js' %}"></script>
+<script src="{% static 'js/home.js' %}"></script>
 </html>

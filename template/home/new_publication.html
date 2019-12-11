@@ -1,0 +1,51 @@
+
+<div class="new-pub dfc clm" id="id_new_pub">
+    <div class="dfc clm">
+        <span>Publication type</span>
+        <div class="toggle">
+            {# Notice #}
+            <input type="radio" name="publication" value="weight" id="id_notice" checked="checked" />
+            <label for="id_notice">Notice</label>
+            {# Event #}
+            <input type="radio" name="publication" value="dimensions" id="id_event" />
+            <label for="id_event">Event</label>
+            {# Procedure #}
+            <input type="radio" name="publication" value="dimensions" id="id_procedure" />
+            <label for="id_procedure">Procedure</label>
+            {# Announcement #}
+            <input type="radio" name="publication" value="dimensions" id="id_announcement" />
+            <label for="id_announcement">Announcement</label>
+            {# Inscription #}
+            <input type="radio" name="publication" value="dimensions" id="id_inscription" />
+            <label for="id_inscription">Inscription</label>
+        </div>
+    </div>
+    <div class="dfc clm">
+        <span>Addressed to</span>
+        <div class="toggle">
+            {#Community #}
+            <input type="radio" name="address" value="weight" id="id_community" checked="checked" />
+            <label for="id_community">Community</label>
+            {# Students #}
+            <input type="radio" name="address" value="dimensions" id="id_students" />
+            <label for="id_students">Students</label>
+            {# Teachers #}
+            <input type="radio" name="address" value="dimensions" id="id_teachers" />
+            <label for="id_teachers">Teachers</label>
+            {# PAAE #}
+            <input type="radio" name="address" value="dimensions" id="id_paae" />
+            <label for="id_paae">PAAE</label>
+            {# External #}
+            <input type="radio" name="address" value="dimensions" id="id_external" />
+            <label for="id_external">External</label>
+        </div>
+    </div>
+    <input type="text" placeholder="Tittle">
+    <textarea placeholder="Description"></textarea>
+    <div>Document</div>
+    <div>Image</div>
+    <button>Save</button>
+    <button>Send</button>
+    <button>Reviewed</button>
+    <button>Edited</button>
+</div>

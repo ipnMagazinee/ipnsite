@@ -42,4 +42,9 @@ class Publications(ModelBase):
     addressed_to = models.SmallIntegerField()
     image = models.ImageField(upload_to=settings.PUBLISHED_IMAGES, null=True, blank=True)
     file = models.FileField(upload_to=settings.PUBLISHED_DOCUMENTS, null=True, blank=True)
+    revision = models.BooleanField(default=False, null=True, blank=True)
+    edition = models.BooleanField(default=False, null=True, blank=True)
+
+
+
 

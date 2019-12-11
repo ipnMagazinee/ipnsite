@@ -1,4 +1,5 @@
-
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 from django.views.generic import ListView
 from django.shortcuts import render
 # models
@@ -30,3 +31,17 @@ class CreatorView(ListView):
 
 class ReviserView(ListView):
     pass
+
+
+def get_new_publication(request):
+    data = dict()
+    id_published = request.POST.get('id_publisher')
+    context = {'id_publisher': id_published}
+    try:
+        data['html'] = render_to_string('home/new_publication.html', context, request)
+        data['success'] = True
+        data['message'] = ''
+    except Exception as ex:
+        data['success'] = False
+        data['message'] = 'Error getting form' + str(ex.args)
+    return JsonResponse(data)
