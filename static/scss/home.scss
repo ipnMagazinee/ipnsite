@@ -4,17 +4,18 @@
 html, body{
   margin: 0px;
   padding: 0px;
-  @include size(100%, 100%);
+  @include size(100%, auto);
   background-color: $bg-color;
 }
 
 header{
-  @include size(100%, 8%);
+  @include size(100%, 45px);
   background-color: white;
+  margin: 0px 0px 10px 0px;
 }
 
 section{
-    @include size(100%, 92%);
+    @include size(100%, auto);
 }
 
 .logo{
@@ -43,101 +44,24 @@ section{
 }
 
 
-/*
-    Publisher
-*/
-.btn_add{
-    @include size(60px, 60px);
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    &:hover{
-        opacity: 0.6;
-    }
+.preloader {
+  width: 40px;
+  height: 40px;
+  border: 10px solid #eee;
+  border-top: 10px solid #4B9DEA;
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
-
-// np: new publication section
-.new-pub{
-    @include size(98%, 95%);
-    margin: 10px 0px;
-    background-color: white;
-    @include font2;
-    input[type="text"]{
-        @include size(40%, 5%);
-        border: solid 1px #DDD;
-        border-radius: 10px;
-        margin: 10px 0px;
-        padding: 0px 10px;
-    }
-    textarea{
-        @include size(40%, 30%);
-        border: solid 1px #DDD;
-        border-radius: 10px;
-        margin: 10px 0px;
-        padding: 10px 10px;
-    }
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
-/* VARS */
-$open-sans: 'Open Sans', 'Helvetica', sans-serif;
-
-$darkNavy: #213140;
-$teal1: #66B3FB;
-$teal2: #4B9DEA;
-$charcoal: #555555;
-$gold: #B6985A;
-
-$activeShadow: 0 0 10px rgba($teal1, .5);
-
-/* MIXINS */
-@mixin focusOutline {outline: dotted 1px #CCC; outline-offset: .45rem;}
-@mixin hideInput {width: 0; height: 0; position: absolute; left: -9999px;}
-
-.toggle {
-	margin: 10px 0em;
-	box-sizing: border-box;
-	font-size: 0;
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	input {@include hideInput;}
-	input + label {
-		margin: 0;
-		padding: 0.2em 1em;
-		box-sizing: border-box;
-		position: relative;
-		display: inline-block;
-		border: solid 1px #DDD;
-		background-color: #FFF;
-		font-size: 1rem;
-		line-height: 140%;
-		font-weight: 600;
-		text-align: center;
-		box-shadow: 0 0 0 rgba(255,255,255,0);
-		transition: 	border-color .15s ease-out,
-					color .25s ease-out,
-					background-color .15s ease-out,
-					box-shadow .15s ease-out;
-
-		/* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
-		/*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
-		/* ----- */
-
-		&:first-of-type {border-radius: 6px 0 0 6px; border-right: none;}
-		&:last-of-type {border-radius: 0 6px 6px 0; border-left: none;}
-	}
-	input:hover + label {border-color: $darkNavy;}
-	input:checked + label {
-		background-color: $teal2;
-		color: #FFF;
-		box-shadow: $activeShadow;
-		border-color: $teal2;
-		z-index: 1;
-	}
-	input:focus + label {@include focusOutline;}
-}
-
 
 /*********************************************
                  Home media
@@ -148,12 +72,5 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
     }
     .data{
         @include size(40%, 100%);
-    }
-
-    /* Publisher */
-    .toggle{
-        input + label {
-            padding: 0.2em 0.5em;
-        }
     }
 }

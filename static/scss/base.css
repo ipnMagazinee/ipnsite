@@ -41,23 +41,31 @@ Message
 .msg-error, .msg-success {
   width: auto;
   height: auto;
-  border-radius: 10px;
   border: 0px;
   margin: 10px;
-  padding: 5px 15px; }
+  padding: 5px 15px;
+  border-radius: 20px; }
 
 .msg-success {
-  background-color: #d4efdf;
-  color: #52be80;
-  font-family: 'Lobster', cursive;
-  font-family: 'Stylish', sans-serif;
-  font-family: 'Open Sans Condensed', sans-serif; }
+  background-color: #d4efdf; }
+  .msg-success span {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    color: #52be80;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif; }
 
 .msg-error {
-  background-color: #f2d7d5;
-  color: #cd6155;
-  font-family: 'Lobster', cursive;
-  font-family: 'Stylish', sans-serif;
-  font-family: 'Open Sans Condensed', sans-serif; }
+  background-color: #f2d7d5; }
+  .msg-error span {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    color: #cd6155;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif; }
 
 /*# sourceMappingURL=base.css.map */

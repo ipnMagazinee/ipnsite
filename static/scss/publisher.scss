@@ -1,0 +1,199 @@
+
+@import "base.scss";
+
+/*********************************************
+                Publisher
+*********************************************/
+
+/*
+    Button style
+*/
+.btn{
+    @include size(100px, 30px);
+    background-color: #4B9DEA;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    margin: 10px 0px;
+    outline: 0px;
+    &:active{
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(102, 179, 251, 1);
+    }
+}
+
+// button new publication
+.btn_add{
+    @include size(60px, 60px);
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 2;
+    &:hover{
+        opacity: 0.6;
+    }
+}
+
+// New publication
+.new-pub{
+    @include size(98%, 95%);
+    margin: 0px;
+    padding: 10px 0px;
+    background-color: white;
+    @include font2;
+    form{
+        input[type="text"]{
+            @include size(80%, 5%);
+            border: solid 1px #DDD;
+            border-radius: 10px;
+            margin: 10px 0px;
+            padding: 5px 10px;
+            @include font2;
+            outline: 0px;
+            &:focus{
+                border-color: #4B9DEA;
+                box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+            }
+        }
+        textarea{
+            @include size(80%, 100px);
+            border: solid 1px #DDD;
+            border-radius: 10px;
+            margin: 10px 0px;
+            padding: 10px 10px;
+            @include font2;
+            outline: 0px;
+            resize: none;
+            &:focus{
+                border-color: $blue;
+                box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+            }
+        }
+        input[type="file"]{
+            display: none;
+        }
+    }
+}
+
+.img{
+    @include size(40px, 40px);
+        &:hover{
+            cursor: pointer;
+        }
+}
+
+.preview{
+    @include size(auto, auto);
+    max-width: 90%;
+    overflow: scroll;
+    overflow-y: hidden;
+    img{
+        @include size(90px, 90px);
+        margin: 2px;
+        border: 0px;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+    &::-webkit-scrollbar:vertical {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-button:increment{
+      display: none;
+    }
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+    &::-webkit-scrollbar:horizontal {
+      height: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(213, 216, 220);
+      border-radius: 20px;
+      border: 1px solid #f1f2f3;
+      margin: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+}
+
+/* Radio Button Effect */
+$open-sans: 'Open Sans', 'Helvetica', sans-serif;
+
+$darkNavy: #213140;
+$teal1: #66B3FB;
+$teal2: #4B9DEA;
+$charcoal: #555555;
+$gold: #B6985A;
+
+$activeShadow: 0 0 10px rgba($teal1, .5);
+
+/* MIXINS */
+@mixin focusOutline {outline: dotted 1px #CCC; outline-offset: .45rem;}
+@mixin hideInput {width: 0; height: 0; position: absolute; left: -9999px;}
+
+.toggle {
+	margin: 10px 0em;
+	box-sizing: border-box;
+	font-size: 0;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	input {@include hideInput;}
+	input + label {
+		margin: 0;
+		padding: 0.2em 1em;
+		box-sizing: border-box;
+		position: relative;
+		display: inline-block;
+		border: solid 1px #DDD;
+		background-color: #FFF;
+		font-size: 1rem;
+		line-height: 140%;
+		font-weight: 600;
+		text-align: center;
+		box-shadow: 0 0 0 rgba(255,255,255,0);
+		transition: 	border-color .15s ease-out,
+					color .25s ease-out,
+					background-color .15s ease-out,
+					box-shadow .15s ease-out;
+
+		/* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
+		/*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
+		/* ----- */
+
+		&:first-of-type {border-radius: 6px 0 0 6px; border-right: none;}
+		&:last-of-type {border-radius: 0 6px 6px 0; border-left: none;}
+	}
+	input:hover + label {border-color: $darkNavy;}
+	input:checked + label {
+		background-color: $teal2;
+		color: #FFF;
+		box-shadow: $activeShadow;
+		border-color: $teal2;
+		z-index: 1;
+	}
+	input:focus + label {@include focusOutline;}
+}
+
+
+@media screen and (max-device-width: 480px) {
+    /* Publisher */
+    .toggle{
+        input + label {
+            padding: 0.2em 0.5em;
+        }
+    }
+
+    .new-pub{
+       input[type="text"]{
+          @include size(70%, 5%);
+       }
+       textarea{
+          @include size(70%, 150px);
+       }
+    }
+}

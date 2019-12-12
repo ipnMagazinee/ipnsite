@@ -76,22 +76,30 @@ Message
 **********************************************************************************/
 %msg{
   @include size(auto, auto);
-  border-radius: 10px;
   border: 0px;
   margin: 10px;
   padding: 5px 15px;
+  border-radius: 20px;
 }
 .msg{
   &-success{
     @extend %msg;
     background-color: rgb(212, 239, 223);
-    color: rgb(82, 190, 128 );
-    @include font2;
+    span{
+        @include size(auto, auto);
+        border-radius: 10px;
+        color: rgb(82, 190, 128 );
+        @include font2;
+    }
   }
   &-error{
     @extend %msg;
     background-color: rgb(242, 215, 213);
-    color: rgb(205, 97, 85);
-    @include font2;
+    span{
+        @include size(auto, auto);
+        border-radius: 10px;
+        color: rgb(205, 97, 85);
+        @include font2;
+    }
   }
 }

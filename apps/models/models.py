@@ -34,17 +34,24 @@ class Profiles(ModelBase):
     image = models.ImageField(upload_to=settings.PROFILE_IMAGE, null=True, blank=True)
 
 
+class PublicationType(ModelBase):
+    name = models.CharField(max_length=50)
+
+
+class AddressedTo(ModelBase):
+    name = models.CharField(max_length=50)
+
+
 class Publications(ModelBase):
     profile = models.ForeignKey(Profiles, on_delete=models.CASCADE)  # Who make the publication
     tittle = models.CharField(max_length=100)
-    text = models.CharField(max_length=500)
-    type = models.SmallIntegerField()
-    addressed_to = models.SmallIntegerField()
+    description = models.CharField(max_length=500)
+    type = models.ForeignKey(PublicationType, on_delete=models.CASCADE)
+    addressed_to = models.ForeignKey(AddressedTo, on_delete=models.CASCADE)
     image = models.ImageField(upload_to=settings.PUBLISHED_IMAGES, null=True, blank=True)
     file = models.FileField(upload_to=settings.PUBLISHED_DOCUMENTS, null=True, blank=True)
     revision = models.BooleanField(default=False, null=True, blank=True)
     edition = models.BooleanField(default=False, null=True, blank=True)
-
 
 
 

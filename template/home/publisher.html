@@ -7,11 +7,17 @@
 
 {% block content %}
 
-{% for object in object_list %}
-    <p>{{ object.tittle }}</p>
-{% endfor %}
-<img class="btn_add" src="{% static 'img/btn_add.png' %}"
-     data-url="{% url 'home:get_new_publication' %}"
-     data-id-publisher="{{ profile.id }}" {# publiser id #}
-     id="btn-new-pub">
+    <section class="dfc clm" id="id_publisher">
+      {#  <div class="preloader"></div> #}
+        <div id="publications">
+        </div>
+        <div id="id_message">
+            <span id="id_message_text"></span>
+        </div>
+    </section>
+
+    <img class="btn_add" src="{% static 'img/btn_add.png' %}"
+         data-url="{% url 'home:get_new_publication' %}"
+         data-id-publisher="{{ profile.id }}" {# publiser id #}
+         id="btn-new-pub">
 {% endblock %}

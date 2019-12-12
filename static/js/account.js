@@ -127,11 +127,11 @@ $(document).on('click', '#btn_signUp', function () {
         });
         request.done(function (data) {
            if(data.success) {
-               $('aside').addClass('msg-success');
-               $('#id_message').text(data.message);
+                $('#id_message').addClass('msg-success');
+                $('#id_message_text').html(data.message);
            }else {
-               $('aside').addClass('msg-error');
-               $('#id_message').text(data.message);
+               $('#id_message').addClass('msg-error');
+                $('#id_message_text').html(data.message);
            }
         });
         request.fail(function( jqXHR, textStatus ) {
@@ -139,8 +139,8 @@ $(document).on('click', '#btn_signUp', function () {
         });
 
     }else{ // validation fail
-        $('aside').addClass('msg-error');
-        $('#id_message').text(msgBuilder.toString());
+        $('#id_message').addClass('msg-error');
+        $('#id_message_text').html(msgBuilder.toString());
     }
 });
 
@@ -173,8 +173,8 @@ $(document).on('click', '#btn_login', function () {
             if(data.success){
                 windows.open(data.url);
             }else{
-                $('aside').addClass('msg-error');
-                $('#id_message').text(data.message);
+                $('#id_message').addClass('msg-error');
+                $('#id_message_text').html(data.message);
             }
         });
     request.fail(function(rqHX, textStatus){
