@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'apps.account',
     'apps.models',
     'apps.home',
+    'apps.publisher',
     #  django apps
     'sass_processor',
     'django.contrib.admin',
@@ -143,9 +144,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Media dirs
-PROFILE_IMAGE = MEDIA_ROOT + 'profiles'
-PUBLISHED_DOCUMENTS = MEDIA_ROOT + 'documents'
-PUBLISHED_IMAGES = MEDIA_ROOT + 'image'
+PROFILE_IMAGE = MEDIA_ROOT + '/profiles'
+PUBLISHED_DOCUMENTS = MEDIA_ROOT + '/documents'
+PUBLISHED_IMAGES = MEDIA_ROOT + '/image'
 
 # Sass files (scss)
 STATICFILES_FINDERS = [

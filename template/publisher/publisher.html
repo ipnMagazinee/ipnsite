@@ -1,7 +1,7 @@
 
 {# List of publications #}
 
-{% extends 'home/base.html' %}
+{% extends 'base/base.html' %}
 
 {% load static %}
 
@@ -16,8 +16,6 @@
         </div>
     </section>
 
-    <img class="btn_add" src="{% static 'img/btn_add.png' %}"
-         data-url="{% url 'home:get_new_publication' %}"
-         data-id-publisher="{{ profile.id }}" {# publiser id #}
-         id="btn-new-pub">
+    <a href="{% url 'publisher:new_publication' profile.name %}"><img class="btn_add" src="{% static 'img/btn_add.png' %}"></a>
+
 {% endblock %}

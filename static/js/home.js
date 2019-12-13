@@ -2,6 +2,7 @@
 /*
     Get template : new publisher
 */
+/*
 $(document).on('click', '#btn-new-pub', function(){
     let url = $(this).data('url');
     let csrftoken = $('input[name="csrfmiddlewaretoken"]').val();
@@ -28,6 +29,7 @@ $(document).on('click', '#btn-new-pub', function(){
         console.log( "Request failed: " + textStatus );
     });
 });
+*/
 
 /*
     Show images preview
@@ -84,8 +86,12 @@ $(document).on('click', '#id_btn_send', function(){
             processData: false,
         });
         request.done(function(data){
-            $('#id_newPub_form').remove();
-            console.log('save');
+            if(data.success){
+                console.log(data.url);
+                window.location = data.url;
+            }else{
+                console.log(data.message);
+            }
         });
         request.fail(function(jqXHR, textStatus){
             $('#id_message').addClass('msg-error');

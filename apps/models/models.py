@@ -48,10 +48,12 @@ class Publications(ModelBase):
     description = models.CharField(max_length=500)
     type = models.ForeignKey(PublicationType, on_delete=models.CASCADE)
     addressed_to = models.ForeignKey(AddressedTo, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to=settings.PUBLISHED_IMAGES, null=True, blank=True)
     file = models.FileField(upload_to=settings.PUBLISHED_DOCUMENTS, null=True, blank=True)
     revision = models.BooleanField(default=False, null=True, blank=True)
     edition = models.BooleanField(default=False, null=True, blank=True)
 
 
-
+class Images(ModelBase):
+    name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to=settings.PUBLISHED_IMAGES)
+    publication = models.ForeignKey(Publications, on_delete=models.CASCADE, null=True, blank=True)

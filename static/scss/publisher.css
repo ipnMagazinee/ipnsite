@@ -229,10 +229,12 @@ Message
   .toggle input + label {
     padding: 0.2em 0.5em; }
   .new-pub input[type="text"] {
-    width: 70%;
+    width: 80%;
     height: 5%; }
   .new-pub textarea {
-    width: 70%;
-    height: 150px; } }
+    width: 80%;
+    height: 150px; }
+  .preview {
+    max-width: 60%; } }
 
 /*# sourceMappingURL=publisher.css.map */

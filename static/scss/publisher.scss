@@ -190,10 +190,14 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
 
     .new-pub{
        input[type="text"]{
-          @include size(70%, 5%);
+          @include size(80%, 5%);
        }
        textarea{
-          @include size(70%, 150px);
+          @include size(80%, 150px);
        }
+    }
+
+    .preview {
+        max-width: 60%;
     }
 }
