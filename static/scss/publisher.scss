@@ -1,10 +1,48 @@
 
 @import "base.scss";
+@import "mixins.scss";
+
+/*********************************************
+             Publisher List
+*********************************************/
+.publisher_list{
+    @include size(98%, 50px);
+    background-color: white;
+    border-radius: 10px;
+    img{
+        @include size(40px, 40px);
+    }
+    margin: 0px 0px 5px 0px;
+}
+.tittle{
+    @include size(70%, 100%)
+    padding: 0px 10px;
+    font-family: Arial;
+    text-decoration: none;
+    color: black;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.date{
+    @include size(20%, auto);
+    font-family: Arial;
+    text-align: right;
+}
+.images{
+    @include size(10%, auto)
+}
+.delete{
+    &:hover{
+        cursor:pointer;
+    }
+}
+
+
 
 /*********************************************
                 Publisher
 *********************************************/
-
 /*
     Button style
 */
@@ -42,13 +80,16 @@
     background-color: white;
     @include font2;
     form{
+        @include size(60%, auto);
         input[type="text"]{
             @include size(80%, 5%);
             border: solid 1px #DDD;
             border-radius: 10px;
             margin: 10px 0px;
             padding: 5px 10px;
-            @include font2;
+            //@include font2;
+            font-family: 'Arial';
+            font-size: 1em;
             outline: 0px;
             &:focus{
                 border-color: #4B9DEA;
@@ -56,12 +97,13 @@
             }
         }
         textarea{
-            @include size(80%, 100px);
+            @include size(80%, 150px);
             border: solid 1px #DDD;
             border-radius: 10px;
             margin: 10px 0px;
             padding: 10px 10px;
-            @include font2;
+            font-family: 'Arial';
+            font-size: 1em;
             outline: 0px;
             resize: none;
             &:focus{
@@ -180,6 +222,10 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
 }
 
 
+/*********************************************
+              Publisher Media
+*********************************************/
+
 @media screen and (max-device-width: 480px) {
     /* Publisher */
     .toggle{
@@ -189,15 +235,22 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
     }
 
     .new-pub{
+       form{
+       @include size(95%, auto);
        input[type="text"]{
           @include size(80%, 5%);
        }
        textarea{
           @include size(80%, 150px);
        }
+       }
     }
 
     .preview {
         max-width: 60%;
+    }
+    .date{
+        font-size: 0.7em;
+        padding:0px 5px;
     }
 }

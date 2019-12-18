@@ -1,21 +1,17 @@
 
-{# List of publications #}
-
 {% extends 'base/base.html' %}
 
+{% load sass_tags %}
 {% load static %}
 
+{% block sass %}
+    <link href="{% sass_src 'scss/publisher.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
 {% block content %}
+    {# list, create form, update form #}
+{% endblock %}
 
-    <section class="dfc clm" id="id_publisher">
-      {#  <div class="preloader"></div> #}
-        <div id="publications">
-        </div>
-        <div id="id_message">
-            <span id="id_message_text"></span>
-        </div>
-    </section>
-
-    <a href="{% url 'publisher:new_publication' profile.name %}"><img class="btn_add" src="{% static 'img/btn_add.png' %}"></a>
-
+{% block script %}
+    <script src="{% static 'js/publisher.js' %}"></script>
 {% endblock %}

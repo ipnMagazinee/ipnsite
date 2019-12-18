@@ -1,37 +1,5 @@
 
 /*
-    Get template : new publisher
-*/
-/*
-$(document).on('click', '#btn-new-pub', function(){
-    let url = $(this).data('url');
-    let csrftoken = $('input[name="csrfmiddlewaretoken"]').val();
-    let id_publisher = $(this).data('id-publisher'); // publisher id
-
-    let request = $.ajax({
-        url: url,
-        type: 'POST',
-        data: {'csrfmiddlewaretoken': csrftoken,
-               'id_publisher': id_publisher},
-        dataType: 'json'
-    });
-    request.done(function(data){
-        if(data.success){
-            if ( $('#id_newPub_form').length ) {
-                 $('#id_newPub_form').remove();
-            }
-            $('#id_publisher').append(data.html);
-        }else{
-            console.log(data.message)
-        }
-    });
-    request.fail(function(jqXHR, textStatus){
-        console.log( "Request failed: " + textStatus );
-    });
-});
-*/
-
-/*
     Show images preview
 */
 $(document).on('change', '#id_image', function(evt){
@@ -46,7 +14,6 @@ $(document).on('change', '#id_image', function(evt){
                     e.target.result +
                     '" title="' + escape(theFile.name) +
                     '" name="image" id="id_image"/>');
-                $('#id_label_image').addClass('dn');
             };
         })(f);
         reader.readAsDataURL(f);
@@ -111,3 +78,70 @@ function validate(elem, message){
         return message;
     }
 }
+
+/*
+    Update form
+*/
+$(document).on('click', '#id_btn_update', function(){
+    // validations
+    let message = '';
+    message += validate($('#id_tittle').val(), 'Enter tittle. ')
+    message += validate($('#id_description').val(), 'Enter a description. ')
+
+    if (message.length === 0){
+        let form = $('#id_updPub_form');
+        let request = $.ajax({
+            url: form.attr('action'),
+            type: form.attr('method'),
+            data: new FormData($(form)[0]),
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+        });
+        request.done(function(data){
+            if(data.success){ window.location = data.url;}
+            else{console.log(data.message);}
+        });
+        request.fail(function(jqXHR, textStatus){
+            $('#id_message').addClass('msg-error');
+            $('#id_message_text').html(message);
+        });
+    } else{
+        $('#id_message').addClass('msg-error');
+        $('#id_message_text').html(message);
+    }
+
+});
+
+/*
+    Delete publication
+*/
+$(document).on('click', '.delete', function(){
+    let url = $(this).data('url');
+    let id_publication = $(this).data('id');
+    let publication = $(this).parents('.publisher_list ');
+    let csrftoken = $('input[name="csrfmiddlewaretoken"]').val();
+
+    let request = $.ajax({
+        url: url,
+        type: 'post',
+        data:{'csrfmiddlewaretoken': csrftoken,
+         'id_publication': id_publication},
+    });
+    request.done(function(data){
+        if(data.success){
+            $('#id_message').addClass('msg-success');
+            $('#id_message_text').html(data.message);
+            $(publication).remove();
+            setTimeout(function() {
+                $("#id_message").fadeOut(800);
+            },3000);
+        }
+    });
+    request.fail(function(jqXHR, textStatus){
+        $('#id_message').addClass('msg-error');
+        $('#id_message_text').html('There was a problem deleting the publication');
+        console.log(textStatus);
+    });
+
+});

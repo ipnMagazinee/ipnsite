@@ -1,10 +1,13 @@
 
+@import "mixins.scss";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+
 
 $bg-color: rgb(235, 237, 239);
 $gda-color: rgb(112, 28, 69);
 $gray1: rgb(171, 178, 185);
 $blue: rgb(52, 152, 219);
+$green-upiicsa: #00953a;
 
 .dn{
   display: none;
@@ -32,37 +35,16 @@ $blue: rgb(52, 152, 219);
   flex-direction: row;
 }
 
-.fdrow{
-  flex-direction: row;
-}
-
-.fdrowr{
+.row-r{
   flex-direction: row-reverse;
 }
 
-/********************************************************************************
-  Mixin
-********************************************************************************/
-
-// set width and height
-@mixin size($w, $h){
-  width: $w;
-  height: $h;
+.cursor{
+    cursor:pointer;
 }
 
-@mixin font1{
-  font-family: 'Lobster', cursive;
-  font-family: 'Stylish', sans-serif;
-  font-family: 'Oswald', sans-serif;
-}
-
-@mixin font2{
-  font-family: 'Lobster', cursive;
-  font-family: 'Stylish', sans-serif;
-  font-family: 'Open Sans Condensed', sans-serif;
-}
 /***********************************************************************************
-Effects
+                                        Effects
  **********************************************************************************/
 
 // Generate cristal effect
@@ -72,8 +54,8 @@ Effects
 }
 
 /***********************************************************************************
-Message
-**********************************************************************************/
+                                        Message
+************************************************************************************/
 %msg{
   @include size(auto, auto);
   border: 0px;
@@ -102,4 +84,82 @@ Message
         @include font2;
     }
   }
+}
+
+/***********************************************************************************
+                                      Header
+************************************************************************************/
+
+html, body{
+  margin: 0px;
+  padding: 0px;
+  @include size(100%, auto);
+  background-color: $bg-color;
+}
+
+header{
+  @include size(100%, 45px);
+  background-color: white;
+  margin: 0px 0px 10px 0px;
+}
+
+section{
+    @include size(100%, auto);
+}
+
+.logo{
+    @include size(85%, 100%);
+    img{
+        @include size(30px, 30px);
+        margin: 0px 10px;
+    }
+    span{
+        font-size: 1em;
+        @include font1;
+    }
+}
+.data{
+    @include size(15%, 100%);
+    background-color: $gda-color;
+    img{
+        @include size(30px, 30px);
+        margin: 0px 5px;
+    }
+    span{
+        font-size: 1em;
+        @include font2;
+        color: white;
+    }
+}
+
+
+.preloader {
+  width: 40px;
+  height: 40px;
+  border: 10px solid #eee;
+  border-top: 10px solid #4B9DEA;
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/***********************************************************************************
+                                Header media
+************************************************************************************/
+@media screen and (max-device-width: 480px) {
+    .logo{
+        @include size(60%, 100%);
+    }
+    .data{
+        @include size(40%, 100%);
+    }
 }

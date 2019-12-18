@@ -1,11 +1,12 @@
-from django.db import models
+import os
 
+from django.db import models
 from ipnsite import settings
 
 
 class ModelBase(models.Model):
-    update_at = models.DateTimeField(auto_now=True)
-    create_at = models.DateTimeField(auto_now=True)
+    update_at = models.DateField(auto_now=True)
+    create_at = models.DateField(auto_now=True)
 
     class Meta:
         abstract = True
@@ -49,8 +50,12 @@ class Publications(ModelBase):
     type = models.ForeignKey(PublicationType, on_delete=models.CASCADE)
     addressed_to = models.ForeignKey(AddressedTo, on_delete=models.CASCADE)
     file = models.FileField(upload_to=settings.PUBLISHED_DOCUMENTS, null=True, blank=True)
-    revision = models.BooleanField(default=False, null=True, blank=True)
-    edition = models.BooleanField(default=False, null=True, blank=True)
+    reviewed = models.BooleanField(default=False, null=True, blank=True)
+    published = models.BooleanField(default=False, null=True, blank=True)
+    visible = models.BooleanField(default=True, blank=True, null=True)
+
+    def filename(self):
+        return os.path.basename(self.file.name)
 
 
 class Images(ModelBase):

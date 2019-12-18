@@ -1,0 +1,29 @@
+
+{% extends 'publisher/publisher.html' %}
+
+{% load static %}
+
+{% block content %}
+    <section class="dfc clm" id="id_publisher">
+        {#  <div class="preloader"></div> #}
+        {% for object in object_list %}
+            <div class="publisher_list df aic row">
+                <a class="tittle df aic" href="{% url 'publisher:update_publication' object.id %}"><span>{{ object.tittle }}</span></a>
+                <span class="date">{{ object.create_at }}</span>
+                <div class="images df row-r">
+                    <img src="{% static 'img/btn_delete.png' %}"
+                         class="cursor delete"
+                         data-url="{% url 'publisher:delete_publication' %}"
+                         data-id="{{ object.id }}">
+                    {% if object.published %}
+                        <img src="{% static 'img/published.png' %}">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        <div id="id_message">
+            <span id="id_message_text"></span>
+        </div>
+    </section>
+    <a href="{% url 'publisher:new_publication' profile.name %}"><img class="btn_add" src="{% static 'img/btn_add.png' %}"></a>
+{% endblock %}

@@ -1,0 +1,22 @@
+
+/********************************************************************************
+                                    Mixins
+********************************************************************************/
+
+// set width and height
+@mixin size($w, $h){
+  width: $w;
+  height: $h;
+}
+
+@mixin font1{
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Oswald', sans-serif;
+}
+
+@mixin font2{
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
+}

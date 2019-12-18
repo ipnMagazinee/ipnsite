@@ -1,24 +1,23 @@
 
-{% extends 'base/base.html' %}
-{% load static %}
-{# new publication form :: Publisher #}
+{% extends 'publisher/publisher.html' %}
+
 {% load static %}
 
 {% block content %}
 <section class="dfc clm" id="id_publisher">
     {#  <div class="preloader"></div> #}
     <div class="new-pub dfc clm">
-        <form class="dfc clm" method="post" action="{% url 'publisher:new_publication' publisher %}" id="id_newPub_form">
+        <form class="dfc clm" method="post" action="{% url 'publisher:new_publication' profile.name %}" id="id_newPub_form">
             {% csrf_token %}
             {# Publication Type #}
             <div class="dfc clm">
                 <span>Publication type</span>
                 <div class="toggle">
                     {# Notice #}
-                    <input type="radio" name="publication" value="notice" id="id_notice" checked="checked" />
+                    <input type="radio" name="publication" value="notice" id="id_notice" checked/>
                     <label for="id_notice">Notice</label>
                     {# Event #}
-                    <input type="radio" name="publication" value="event" id="id_event" />
+                    <input type="radio" name="publication" value="event" id="id_event"/>
                     <label for="id_event">Event</label>
                     {# Procedure #}
                     <input type="radio" name="publication" value="procedure" id="id_procedure" />
@@ -35,13 +34,13 @@
             <div class="dfc clm">
                 <span>Addressed to</span>
                 <div class="toggle">
-                    {#Community #}
+                    {# Community #}
                     <input type="radio" name="address" value="community" id="id_community" checked="checked" />
                     <label for="id_community">Community</label>
                     {# Students #}
                     <input type="radio" name="address" value="students" id="id_students" />
                     <label for="id_students">Students</label>
-                    {# Teachers #
+                    {# Teachers #}
                     <input type="radio" name="address" value="teachers" id="id_teachers" />
                     <label for="id_teachers">Teachers</label>
                     {# PAAE #}
@@ -53,7 +52,7 @@
                 </div>
             </div>
             {# Tittle #}
-            <input type="text" name="tittle" id="id_tittle" placeholder="Tittle">
+            <input type="text" name="tittle" id="id_tittle" placeholder="Tittle" value="{{publication.tittle}}">
             {# Description #}
             <textarea name="description" id="id_description" placeholder="Description"></textarea>
             {# Documents #}
@@ -66,12 +65,12 @@
             </div>
             {# Images #}
             <div class="dfc clm" id="id_image_content">
-                <label for="id_image">
-                    <img class="img" src="{% static 'img/image.png' %}">
-                </label>
-                <input type="file" name="image" id="id_image" accept="image/jpeg, image/png" multiple >
-                <label id="id_label_image">Add an image (optional)</label>
-            </div>
+    <label for="id_image">
+        <img class="img" src="{% static 'img/image.png' %}">
+    </label>
+    <input type="file" name="image" id="id_image" accept="image/jpeg, image/png" multiple >
+    <label id="id_label_image">Add an image (optional)</label>
+</div>
             {# Image pre-view #}
             <div class="preview df row" id="id_pre_view">
             </div>
@@ -81,9 +80,7 @@
     <div id="id_message">
         <span id="id_message_text"></span>
     </div>
+    <a href="{% url 'publisher:publisher' profile.name %}"><img class="btn_add" src="{% static 'img/btn_back.png' %}"></a>
 </section>
-
 {% endblock %}
-
-
 

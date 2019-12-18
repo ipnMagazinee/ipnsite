@@ -13,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300|Stylish&display=swap" rel="stylesheet">
     {# Sass #}
     <link href="{% sass_src 'scss/base.scss' %}" rel="stylesheet" type="text/css" />
-    <link href="{% sass_src 'scss/home.scss' %}" rel="stylesheet" type="text/css" />
-    <link href="{% sass_src 'scss/publisher.scss' %}" rel="stylesheet" type="text/css" />
+    {% block sass %}
+    {% endblock %}
 </head>
 <body>
 <header class="dfc drowr">
@@ -33,12 +33,12 @@
     </div>
     {% csrf_token %}
 </header>
-
 {% block content %}
 {% endblock %}
-
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="{% static 'js/base.js' %}"></script>
-<script src="{% static 'js/home.js' %}"></script>
+{% block script %}
+{% endblock %}
 </html>
