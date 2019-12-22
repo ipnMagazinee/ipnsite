@@ -1,4 +1,4 @@
-"""ipnsite URL Configuration
+""" ipnsite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # my urls
     path('account/', include('apps.account.urls')),  # account
+    path('user/', include('apps.user.urls')),  # user
+    path('editor/', include('apps.editor.urls')),  # editor
     path('publisher/', include('apps.publisher.urls')),  # publisher
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

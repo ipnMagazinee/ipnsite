@@ -8,7 +8,7 @@ from apps.models.models import Publications, Profiles, PublicationType, Addresse
 
 
 class PublisherView(ListView):
-    template_name = 'publisher/publisher_list.html'
+    template_name = 'publisher/user_list.html'
     model = Publications
     paginate_by = 100
 

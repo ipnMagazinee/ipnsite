@@ -1,0 +1,26 @@
+
+
+{% extends 'editor/editor.html' %}
+
+{% load static %}
+
+{% block content %}
+    <section class="dfc clm" id="id_editor">
+        {% for object in object_list %}
+            <div class="editor-list df aic row">
+                <a class="tittle df aic cursor" href="#"><span>{{ object.tittle }}</span></a>
+                <span class="date">{{ object.create_at }}</span>
+                <div class="images df row-r">
+                    {% if object.reviewed %}
+                        <img src="{% static 'img/reviewed.png' %}">
+                    {% else %}
+                        <img src="{% static 'img/no_reviewed.png' %}">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        <div id="id_message">
+            <span id="id_message_text"></span>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,86 @@
+
+{% extends 'user/user.html' %}
+
+{% load static %}
+
+{% block content %}
+<section class="dfc clm" id="id_user">
+    {#  <div class="preloader"></div> #}
+    <div class="new-pub dfc clm">
+        <form class="dfc clm" method="post" action="{% url 'user:new_publication' profile.name %}" id="id_newPub_form">
+            {% csrf_token %}
+            {# Publication Type #}
+            <div class="dfc clm">
+                <span>Publication type</span>
+                <div class="toggle">
+                    {# Notice #}
+                    <input type="radio" name="publication" value="notice" id="id_notice" checked/>
+                    <label for="id_notice">Notice</label>
+                    {# Event #}
+                    <input type="radio" name="publication" value="event" id="id_event"/>
+                    <label for="id_event">Event</label>
+                    {# Procedure #}
+                    <input type="radio" name="publication" value="procedure" id="id_procedure" />
+                    <label for="id_procedure">Procedure</label>
+                    {# Announcement #}
+                    <input type="radio" name="publication" value="announcement" id="id_announcement" />
+                    <label for="id_announcement">Announcement</label>
+                    {# Inscription #}
+                    <input type="radio" name="publication" value="inscription" id="id_inscription" />
+                    <label for="id_inscription">Inscription</label>
+                </div>
+            </div>
+            {# Addressed to #}
+            <div class="dfc clm">
+                <span>Addressed to</span>
+                <div class="toggle">
+                    {# Community #}
+                    <input type="radio" name="address" value="community" id="id_community" checked="checked" />
+                    <label for="id_community">Community</label>
+                    {# Students #}
+                    <input type="radio" name="address" value="students" id="id_students" />
+                    <label for="id_students">Students</label>
+                    {# Teachers #}
+                    <input type="radio" name="address" value="teachers" id="id_teachers" />
+                    <label for="id_teachers">Teachers</label>
+                    {# PAAE #}
+                    <input type="radio" name="address" value="paae" id="id_paae" />
+                    <label for="id_paae">PAAE</label>
+                    {# External #}
+                    <input type="radio" name="address" value="external" id="id_external" />
+                    <label for="id_external">External</label>
+                </div>
+            </div>
+            {# Tittle #}
+            <input type="text" name="tittle" id="id_tittle" placeholder="Tittle" value="{{publication.tittle}}">
+            {# Description #}
+            <textarea name="description" id="id_description" placeholder="Description"></textarea>
+            {# Documents #}
+            <div class="dfc clm">
+                <label for="id_file">
+                    <img class="img" src="{% static 'img/document.png' %}">
+                </label>
+                <input type="file" name="file" id="id_file" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+                <label id="id_doc_name">Add a document (optional)</label>
+            </div>
+            {# Images #}
+            <div class="dfc clm" id="id_image_content">
+    <label for="id_image">
+        <img class="img" src="{% static 'img/image.png' %}">
+    </label>
+    <input type="file" name="image" id="id_image" accept="image/jpeg, image/png" multiple >
+    <label id="id_label_image">Add an image (optional)</label>
+</div>
+            {# Image pre-view #}
+            <div class="preview df row" id="id_pre_view">
+            </div>
+            <button type="button" class="btn" id="id_btn_send">Send</button>
+        </form>
+    </div>
+    <div id="id_message">
+        <span id="id_message_text"></span>
+    </div>
+    <a href="{% url 'user:user' profile.name %}"><img class="btn_add" src="{% static 'img/btn_back.png' %}"></a>
+</section>
+{% endblock %}
+

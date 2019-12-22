@@ -1,0 +1,45 @@
+
+@import "base.scss";
+@import "mixins.scss";
+
+/*********************************************
+             User list format
+*********************************************/
+.editor-list{
+    @include size(98%, 50px);
+    background-color: white;
+    border-radius: 10px;
+    img{
+        @include size(40px, 40px);
+    }
+    margin: 0px 0px 5px 0px;
+}
+.tittle{
+    @include size(70%, 100%)
+    padding: 0px 10px;
+    font-family: Arial;
+    text-decoration: none;
+    color: black;
+}
+.date{
+    @include size(20%, auto);
+    font-family: Arial;
+    text-align: right;
+}
+.images{
+    @include size(10%, auto)
+    padding: 0px 10px 0px 0px;
+}
+
+/*********************************************
+              Editor Media Format
+*********************************************/
+
+@media screen and (max-device-width: 480px) {
+    .date{
+        font-size: 0.7em;
+        padding: 0px 5px;
+    }
+}
+
+

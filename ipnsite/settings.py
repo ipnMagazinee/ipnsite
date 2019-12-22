@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'ipnsite',
     'apps.account',
     'apps.models',
-    'apps.home',
+    'apps.user',
+    'apps.editor',
     'apps.publisher',
     #  django apps
     'sass_processor',

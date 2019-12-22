@@ -1,0 +1,189 @@
+/********************************************************************************
+                                    Mixins
+********************************************************************************/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+.dn {
+  display: none; }
+
+.df {
+  display: flex; }
+
+.dfc {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.aic {
+  align-items: center; }
+
+.clm {
+  flex-direction: column; }
+
+.row {
+  flex-direction: row; }
+
+.row-r {
+  flex-direction: row-reverse; }
+
+.cursor {
+  cursor: pointer; }
+
+/***********************************************************************************
+                                        Effects
+ **********************************************************************************/
+.blur {
+  filter: blur(5px);
+  -webkit-filter: blur(5px); }
+
+/***********************************************************************************
+                                        Message
+************************************************************************************/
+.msg-error, .msg-success {
+  width: auto;
+  height: auto;
+  border: 0px;
+  margin: 10px;
+  padding: 5px 15px;
+  border-radius: 20px; }
+
+.msg-success {
+  background-color: #d4efdf; }
+  .msg-success span {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    color: #52be80;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif; }
+
+.msg-error {
+  background-color: #f2d7d5; }
+  .msg-error span {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    color: #cd6155;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif; }
+
+/***********************************************************************************
+                                      Header
+************************************************************************************/
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: auto;
+  background-color: #ebedef; }
+
+header {
+  width: 100%;
+  height: 45px;
+  background-color: white;
+  margin: 0px 0px 10px 0px; }
+
+section {
+  width: 100%;
+  height: auto; }
+
+.logo {
+  width: 85%;
+  height: 100%; }
+  .logo img {
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px; }
+  .logo span {
+    font-size: 1em;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Oswald', sans-serif; }
+
+.data {
+  width: 15%;
+  height: 100%;
+  background-color: #701c45; }
+  .data img {
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px; }
+  .data span {
+    font-size: 1em;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white; }
+
+.preloader {
+  width: 40px;
+  height: 40px;
+  border: 10px solid #eee;
+  border-top: 10px solid #4B9DEA;
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; }
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+/***********************************************************************************
+                                Header media
+************************************************************************************/
+@media screen and (max-device-width: 480px) {
+  .logo {
+    width: 60%;
+    height: 100%; }
+  .data {
+    width: 40%;
+    height: 100%; } }
+
+/********************************************************************************
+                                    Mixins
+********************************************************************************/
+/*********************************************
+             User list format
+*********************************************/
+.editor-list {
+  width: 98%;
+  height: 50px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0px 0px 5px 0px; }
+  .editor-list img {
+    width: 40px;
+    height: 40px; }
+
+.tittle {
+  width: 70%;
+  height: 100%;
+  padding: 0px 10px;
+  font-family: Arial;
+  text-decoration: none;
+  color: black; }
+
+.date {
+  width: 20%;
+  height: auto;
+  font-family: Arial;
+  text-align: right; }
+
+.images {
+  width: 10%;
+  height: auto;
+  padding: 0px 10px 0px 0px; }
+
+/*********************************************
+              Editor Media Format
+*********************************************/
+@media screen and (max-device-width: 480px) {
+  .date {
+    font-size: 0.7em;
+    padding: 0px 5px; } }
+
+/*# sourceMappingURL=editor.css.map */

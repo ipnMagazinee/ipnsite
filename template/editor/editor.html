@@ -1,0 +1,18 @@
+
+
+{% extends 'base/base.html' %}
+
+{% load sass_tags %}
+{% load static %}
+
+{% block sass %}
+    <link href="{% sass_src 'scss/editor.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    {# list, create form, update form #}
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/editor.js' %}"></script>
+{% endblock %}
