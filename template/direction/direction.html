@@ -1,0 +1,17 @@
+
+{% extends 'base/base.html' %}
+
+{% load sass_tags %}
+{% load static %}
+
+{% block sass %}
+    <link href="{% sass_src 'scss/direction.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    {# list, approve publication #}
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/direction.js' %}"></script>
+{% endblock %}

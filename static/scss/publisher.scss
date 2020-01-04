@@ -3,15 +3,12 @@
 @import "mixins.scss";
 
 /*********************************************
-             Publisher List
+            Publisher list format
 *********************************************/
-.publisher_list{
+.publisher-list{
     @include size(98%, 50px);
     background-color: white;
     border-radius: 10px;
-    img{
-        @include size(40px, 40px);
-    }
     margin: 0px 0px 5px 0px;
 }
 .tittle{
@@ -20,84 +17,49 @@
     font-family: Arial;
     text-decoration: none;
     color: black;
-    &:hover{
-        cursor: pointer;
-    }
 }
 .date{
-    @include size(20%, auto);
+    @include size(15%, auto);
+    font-size: 0.7em;
     font-family: Arial;
     text-align: right;
 }
-.images{
-    @include size(10%, auto)
-}
-.delete{
-    &:hover{
-        cursor:pointer;
+/* Images in publication list */
+.images-list{
+    @include size(15%, auto)
+    margin: 0px 5px;
+    img{
+        @include size(35px, 35px);
+        margin: 0px 2px;
     }
 }
-
-
 
 /*********************************************
-                Publisher
+                Publication
 *********************************************/
-/*
-    Button style
-*/
-.btn{
-    @include size(100px, 30px);
-    background-color: #4B9DEA;
-    border: 0px;
-    border-radius: 10px;
-    color: white;
-    margin: 10px 0px;
-    outline: 0px;
-    &:active{
-        opacity: 1;
-        box-shadow: 0 0 10px rgba(102, 179, 251, 1);
-    }
-}
-
-// button new publication
-.btn_add{
-    @include size(60px, 60px);
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 2;
-    &:hover{
-        opacity: 0.6;
-    }
-}
-
-// New publication
-.new-pub{
-    @include size(98%, 95%);
-    margin: 0px;
-    padding: 10px 0px;
+form{
+    @include size(98%, auto);
+    padding: 20px 0px;
     background-color: white;
-    @include font2;
-    form{
-        @include size(60%, auto);
-        input[type="text"]{
-            @include size(80%, 5%);
-            border: solid 1px #DDD;
-            border-radius: 10px;
-            margin: 10px 0px;
-            padding: 5px 10px;
-            //@include font2;
-            font-family: 'Arial';
-            font-size: 1em;
-            outline: 0px;
-            &:focus{
-                border-color: #4B9DEA;
-                box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
-            }
+    input[type='text']{
+        @include size(80%, 5%);
+        border: solid 1px #DDD;
+        border-radius: 10px;
+        margin: 10px 0px;
+        padding: 5px 10px;
+        font-family: 'Arial';
+        font-size: 1em;
+        outline: 0px;
+        &:focus{
+            border-color: #4B9DEA;
+            box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
         }
-        textarea{
-            @include size(80%, 150px);
+    }
+    input[type='file']{
+        display: none;
+    }
+    textarea{
+            @include size(80%, 180px);
             border: solid 1px #DDD;
             border-radius: 10px;
             margin: 10px 0px;
@@ -111,146 +73,93 @@
                 box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
             }
         }
-        input[type="file"]{
-            display: none;
-        }
-    }
 }
 
-.img{
-    @include size(40px, 40px);
-        &:hover{
-            cursor: pointer;
-        }
+.pub-data{
+    @include font2;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 10px 10px;
 }
 
-.preview{
-    @include size(auto, auto);
-    max-width: 90%;
-    overflow: scroll;
-    overflow-y: hidden;
+/* Images in publisher form */
+.image-preview{
+    @include size(80%, auto);
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 5px;
     img{
-        @include size(90px, 90px);
-        margin: 2px;
-        border: 0px;
+        @include size(130px, 130px);
+        margin: 0px 2px;
         border-radius: 10px;
     }
-    &::-webkit-scrollbar {
-      -webkit-appearance: none;
+}
+
+.document{
+    margin: 20px 0px;
+    span{
+        font-family: Arial;
+        font-size: 1em;
     }
-    &::-webkit-scrollbar:vertical {
-      width: 5px;
-    }
-    &::-webkit-scrollbar-button:increment{
-      display: none;
-    }
-    &::-webkit-scrollbar-button {
-      display: none;
-    }
-    &::-webkit-scrollbar:horizontal {
-      height: 5px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: rgb(213, 216, 220);
-      border-radius: 20px;
-      border: 1px solid #f1f2f3;
-      margin: 5px;
-    }
-    &::-webkit-scrollbar-track {
-      border-radius: 10px;
+    img{
+        @include size(50px, 50px);
     }
 }
 
-/* Radio Button Effect */
-$open-sans: 'Open Sans', 'Helvetica', sans-serif;
-
-$darkNavy: #213140;
-$teal1: #66B3FB;
-$teal2: #4B9DEA;
-$charcoal: #555555;
-$gold: #B6985A;
-
-$activeShadow: 0 0 10px rgba($teal1, .5);
-
-/* MIXINS */
-@mixin focusOutline {outline: dotted 1px #CCC; outline-offset: .45rem;}
-@mixin hideInput {width: 0; height: 0; position: absolute; left: -9999px;}
-
-.toggle {
-	margin: 10px 0em;
-	box-sizing: border-box;
-	font-size: 0;
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	input {@include hideInput;}
-	input + label {
-		margin: 0;
-		padding: 0.2em 1em;
-		box-sizing: border-box;
-		position: relative;
-		display: inline-block;
-		border: solid 1px #DDD;
-		background-color: #FFF;
-		font-size: 1rem;
-		line-height: 140%;
-		font-weight: 600;
-		text-align: center;
-		box-shadow: 0 0 0 rgba(255,255,255,0);
-		transition: 	border-color .15s ease-out,
-					color .25s ease-out,
-					background-color .15s ease-out,
-					box-shadow .15s ease-out;
-
-		/* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
-		/*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
-		/* ----- */
-
-		&:first-of-type {border-radius: 6px 0 0 6px; border-right: none;}
-		&:last-of-type {border-radius: 0 6px 6px 0; border-left: none;}
-	}
-	input:hover + label {border-color: $darkNavy;}
-	input:checked + label {
-		background-color: $teal2;
-		color: #FFF;
-		box-shadow: $activeShadow;
-		border-color: $teal2;
-		z-index: 1;
-	}
-	input:focus + label {@include focusOutline;}
+.option{
+    margin: 0px 10px;
+    img{
+        @include size(50px, 50px);
+    }
+    span{
+        font-family: Arial;
+        font-size: 10px;
+    }
 }
 
+button{
+    @include size(100px, 30px);
+    background-color: #4B9DEA;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    margin: 20px 0px;
+    outline: 0px;
+    &:active{
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(102, 179, 251, 1);
+    }
+}
 
 /*********************************************
-              Publisher Media
+              Publisher Media Format
 *********************************************/
 
 @media screen and (max-device-width: 480px) {
-    /* Publisher */
-    .toggle{
-        input + label {
-            padding: 0.2em 0.5em;
-        }
-    }
-
-    .new-pub{
-       form{
-       @include size(95%, auto);
-       input[type="text"]{
-          @include size(80%, 5%);
-       }
-       textarea{
-          @include size(80%, 150px);
-       }
-       }
-    }
-
-    .preview {
-        max-width: 60%;
-    }
     .date{
         font-size: 0.7em;
-        padding:0px 5px;
+        padding: 0px 5px;
+    }
+    .pub-data{
+        font-size: 1em;
+    }
+    .tittle{
+        @include size(60%, 100%)
+        max-width: 50%;
+    }
+    .date{
+        @include size(10%, auto);
+        font-size: 0.6em;
+    }
+    .images-list{
+        @include size(30%, 100%)
+        img{
+            @include size(30px, 30px);
+            margin: 0px 2px;
+        }
     }
 }
+

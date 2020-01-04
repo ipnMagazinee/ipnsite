@@ -50,12 +50,18 @@ class Publications(ModelBase):
     type = models.ForeignKey(PublicationType, on_delete=models.CASCADE)
     addressed_to = models.ForeignKey(AddressedTo, on_delete=models.CASCADE)
     file = models.FileField(upload_to=settings.PUBLISHED_DOCUMENTS, null=True, blank=True)
+    file_name = models.CharField(max_length=50, null=True, blank=True)
     reviewed = models.BooleanField(default=False, null=True, blank=True)
     published = models.BooleanField(default=False, null=True, blank=True)
     visible = models.BooleanField(default=True, blank=True, null=True)
+    urgent = models.BooleanField(default=False, blank=True, null=True)
+    approved = models.BooleanField(default=False, blank=True, null=True)
 
-    def filename(self):
-        return os.path.basename(self.file.name)
+    def type_upper(self):
+        return self.type.name.upper()
+
+    def address_to_upper(self):
+        return self.addressed_to.name.upper()
 
 
 class Images(ModelBase):

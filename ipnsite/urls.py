@@ -27,5 +27,6 @@ urlpatterns = [
     path('user/', include('apps.user.urls')),  # user
     path('editor/', include('apps.editor.urls')),  # editor
     path('publisher/', include('apps.publisher.urls')),  # publisher
+    path('direction/', include('apps.direction.urls')),  # publisher
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

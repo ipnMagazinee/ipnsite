@@ -5,18 +5,27 @@
 
 {% block content %}
     <section class="dfc clm" id="id_publisher">
-        {#  <div class="preloader"></div> #}
         {% for object in object_list %}
-            <div class="publisher_list df aic row">
-                <a class="tittle df aic" href="{% url 'publisher:update_publication' object.id %}"><span>{{ object.tittle }}</span></a>
+            <div class="publisher-list df aic row">
+                    <a class="tittle df aic cursor" href="{% url 'publisher:publish' profile.name object.id %}">
+                        <span>{{ object.tittle }}</span>
+                    </a>
                 <span class="date">{{ object.create_at }}</span>
-                <div class="images df row-r">
-                    <img src="{% static 'img/btn_delete.png' %}"
-                         class="cursor delete"
-                         data-url="{% url 'publisher:delete_publication' %}"
-                         data-id="{{ object.id }}">
+                <div class="images-list df aic row-r">
                     {% if object.published %}
-                        <img src="{% static 'img/published.png' %}">
+                        <img src="{% static 'img/published.svg' %}">
+                    {% else %}
+                        {% if object.urgent %}
+                            <img src="{% static 'img/urgent.svg' %}">
+                        {% else %}
+                            <img src="{% static 'img/no_published.svg' %}">
+                        {% endif %}
+                    {% endif %}
+                    {% if object.approved %}
+                        <img src="{% static 'img/approved.svg' %}">
+                    {% endif %}
+                    {% if not object.reviewed %}
+                        <img src="{% static 'img/no_reviewed.png' %}">
                     {% endif %}
                 </div>
             </div>
@@ -25,5 +34,4 @@
             <span id="id_message_text"></span>
         </div>
     </section>
-    <a href="{% url 'publisher:new_publication' profile.name %}"><img class="btn_add" src="{% static 'img/btn_add.png' %}"></a>
 {% endblock %}

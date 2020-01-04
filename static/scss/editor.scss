@@ -9,9 +9,6 @@
     @include size(98%, 50px);
     background-color: white;
     border-radius: 10px;
-    img{
-        @include size(40px, 40px);
-    }
     margin: 0px 0px 5px 0px;
 }
 .tittle{
@@ -23,12 +20,101 @@
 }
 .date{
     @include size(20%, auto);
+    font-size: 0.7em;
     font-family: Arial;
     text-align: right;
 }
 .images{
     @include size(10%, auto)
-    padding: 0px 10px 0px 0px;
+    margin: 0px 5px;
+    img{
+        @include size(35px, 35px);
+        margin: 0px 5px;
+    }
+}
+
+/*********************************************
+                Publication
+*********************************************/
+form{
+    @include size(98%, auto);
+    padding: 20px 0px;
+    background-color: white;
+    input[type='text']{
+        @include size(80%, 5%);
+        border: solid 1px #DDD;
+        border-radius: 10px;
+        margin: 10px 0px;
+        padding: 5px 10px;
+        font-family: 'Arial';
+        font-size: 1em;
+        outline: 0px;
+        &:focus{
+            border-color: #4B9DEA;
+            box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+        }
+    }
+    input[type='file']{
+        display: none;
+    }
+    textarea{
+            @include size(80%, 180px);
+            border: solid 1px #DDD;
+            border-radius: 10px;
+            margin: 10px 0px;
+            padding: 10px 10px;
+            font-family: 'Arial';
+            font-size: 1em;
+            outline: 0px;
+            resize: none;
+            &:focus{
+                border-color: $blue;
+                box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+            }
+        }
+}
+
+.pub-data{
+    @include font2;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 10px 10px;
+}
+
+.document{
+    margin: 20px 0px;
+    span{
+        font-family: Arial;
+        font-size: 1em;
+    }
+    img{
+        @include size(50px, 50px);
+    }
+}
+
+.option{
+    margin: 0px 10px;
+    img{
+        @include size(50px, 50px);
+    }
+    span{
+        font-family: Arial;
+        font-size: 10px;
+    }
+}
+
+button{
+    @include size(100px, 30px);
+    background-color: #4B9DEA;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    margin: 20px 0px;
+    outline: 0px;
+    &:active{
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(102, 179, 251, 1);
+    }
 }
 
 /*********************************************
@@ -37,8 +123,16 @@
 
 @media screen and (max-device-width: 480px) {
     .date{
-        font-size: 0.7em;
+        font-size: 0.6em;
         padding: 0px 5px;
+    }
+    .pub-data{
+        font-size: 1em;
+    }
+    .images{
+        img{
+            @include size(30px, 30px);
+        }
     }
 }
 

@@ -7,7 +7,6 @@ app_name = 'publisher'
 
 urlpatterns = [
     path('<str:name>/', PublisherView.as_view(), name='publisher'),
-    path('new_publication/<str:name>', NewPublicationView.as_view(), name='new_publication'),
-    path('update_publication/<int:pk>', UpdatePublicationView.as_view(), name='update_publication'),
-    path('delete_publication', delete_publication, name='delete_publication'),
+    path('<str:name>/<int:id_publication>', Publish.as_view(), name='publish'),
+    path('download_image/<int:image_id>/', download_image, name='download_image'),
 ]

@@ -34,6 +34,7 @@ class NewPublicationView(View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
+        """ Save publications """
         data = dict()
         name = self.kwargs.get('name')
         profile = Profiles.objects.get(name=name)
@@ -50,14 +51,13 @@ class NewPublicationView(View):
                                                       type_id=type.id, addressed_to_id=address.id)
             if bool(file):
                 publication.file = file
+                publication.file_name = file.name
                 publication.save()
             if bool(images):
                 number = 0
                 for image in images:
                     image_name = str(publication.id) + '_ ' + str(number)
-                    foo = Images.objects.create(name=image_name, image=image, publication_id=publication.id)
-                    publication.image = foo
-                    publication.save()
+                    Images.objects.create(name=image_name, image=image, publication_id=publication.id)
                     number += 1
             data['url'] = reverse('user:user', args=[name])
             data['success'] = True
@@ -81,6 +81,7 @@ class UpdatePublicationView(View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
+        """ Update form """
         data = dict()
         id_publication = self.kwargs.get('pk')
         tittle = request.POST.get('tittle')
@@ -100,14 +101,13 @@ class UpdatePublicationView(View):
             publication.save()
             if bool(file):
                 publication.file = file
+                publication.file_name = file.name
                 publication.save()
             if bool(images):
                 number = 0
                 for image in images:
                     image_name = str(publication.id) + '_ ' + str(number)
-                    foo = Images.objects.create(name=image_name, image=image, publication_id=publication.id)
-                    publication.image = foo
-                    publication.save()
+                    Images.objects.create(name=image_name, image=image, publication_id=publication.id)
                     number += 1
             data['url'] = reverse('user:user', args=[publication.profile.name])
             data['success'] = True

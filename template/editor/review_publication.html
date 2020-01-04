@@ -1,0 +1,40 @@
+
+{% extends 'editor/editor.html' %}
+{% load static %}
+
+{% block content %}
+<section class="dfc clm">
+    <form class="dfc clm" method="post" action="{% url 'editor:review' profile.name publication.id %}" id="id_review_form">
+        {% csrf_token %}
+        <div>
+            <span class="pub-data">Publication Type:  {{ publication.type_upper }}</span>
+            <span class="pub-data">Addressed to:  {{ publication.address_to_upper }}</span>
+        </div>
+        <input type="text" value="{{ publication.tittle }}" name="tittle">
+        <textarea name="description">{{ publication.description }}</textarea>
+        {% if publication.file %}
+            <div class="document df aic row">
+                <img src="{% static 'img/document.png' %}">
+                <span>{{ publication.file_name }}</span>
+            </div>
+            <div class="dfc row">
+                <div class="dfc clm option">
+                    <a href="{{ publication.file.url }}">
+                        <img class="cursor" src="{% static 'img/download.png' %}">
+                    </a>
+                    <span>Download file</span>
+                </div>
+                <div class="dfc clm option">
+                    <label for="id_file">
+                        <img class="cursor upload" src="{% static 'img/upload.png' %}">
+                    </label>
+                    <input type="file" name="file" id="id_file">
+                    <span id="id_file_name">Upload file</span>
+                </div>
+            </div>
+        {% endif %}
+        <button type="button" id="btn_save">Save</button>
+    </form>
+    <a href="{% url 'editor:editor' profile.name %}"><img class="floating-button" src="{% static 'img/btn_back.png' %}"></a>
+</section>
+{% endblock %}

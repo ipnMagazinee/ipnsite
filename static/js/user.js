@@ -3,19 +3,12 @@
     Show images preview
 */
 $(document).on('change', '#id_image', function(evt){
-    // let f = evt.target.files[0]; --> only one file
     let files = evt.target.files; // FileList object
     for (let i = 0, f; f = files[i]; i++) {
         let reader = new FileReader();
-        // Closure to capture the file information.
-        reader.onload = (function(theFile) {
-            return function(e) {
-                $('#id_pre_view').append('<img class="element" src="' +
-                    e.target.result +
-                    '" title="' + escape(theFile.name) +
-                    '" name="image" id="id_image"/>');
-            };
-        })(f);
+        reader.onload = function() {
+            $('#id_pre_view').append('<img src='+ reader.result +' name="image" class="element">');
+        }
         reader.readAsDataURL(f);
     }
 });

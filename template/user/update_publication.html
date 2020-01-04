@@ -97,26 +97,25 @@
             <textarea name="description" id="id_description" placeholder="Description">{{publication.description}}</textarea>
             {# Documents #}
             <div class="dfc clm">
-    <label for="id_file">
-        <img class="img" src="{% static 'img/document.png' %}">
-    </label>
-    <input type="file" name="file" id="id_file" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf">
-    {% if publication.file %}
-        <label id="id_doc_name">{{publication.filename}}</label>
-    {% else %}
-        <label id="id_doc_name">Add a document (optional)</label>
-    {% endif %}
-</div>
+                <label for="id_file">
+                    <img class="img" src="{% static 'img/document.png' %}">
+                </label>
+                <input type="file" name="file" id="id_file" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+                {% if publication.file %}
+                <label id="id_doc_name">{{publication.file_name}}</label>
+                {% else %}
+                <label id="id_doc_name">Add a document (optional)</label>
+                {% endif %}
+            </div>
             {# Images #}
             <div class="dfc clm" id="id_image_content">
     <label for="id_image">
         <img class="img" src="{% static 'img/image.png' %}">
     </label>
     <input type="file" name="image" id="id_image" accept="image/jpeg, image/png" multiple >
-    <label id="id_label_image">Add an image (optional)</label>
 </div>
             {# Image pre-view #}
-            <div class="preview df row" id="id_pre_view">
+            <div class="image-preview df row" id="id_pre_view">
                 {% for object in images %}
                     <img src="{{ object.image.url }}" alt="{{ object.name }}">
                 {% endfor %}

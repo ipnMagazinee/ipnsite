@@ -10,9 +10,6 @@
     @include size(98%, 50px);
     background-color: white;
     border-radius: 10px;
-    img{
-        @include size(40px, 40px);
-    }
     margin: 0px 0px 5px 0px;
 }
 .tittle{
@@ -26,12 +23,18 @@
     }
 }
 .date{
-    @include size(20%, auto);
+    @include size(15%, auto);
+    font-size: 0.7em;
     font-family: Arial;
     text-align: right;
 }
 .images{
-    @include size(10%, auto)
+    @include size(15%, auto)
+    margin: 0px 5px;
+    img{
+        @include size(35px, 35px);
+        margin: 0px 2px;
+    }
 }
 
 /* button new publication */
@@ -55,7 +58,7 @@
     border: 0px;
     border-radius: 10px;
     color: white;
-    margin: 10px 0px;
+    margin: 20px 0px;
     outline: 0px;
     &:active{
         opacity: 1;
@@ -65,9 +68,8 @@
 
 // New publication format
 .new-pub{
-    @include size(98%, 95%);
-    margin: 0px;
-    padding: 10px 0px;
+     @include size(98%, auto);
+    padding: 20px 0px;
     background-color: white;
     @include font2;
     form{
@@ -116,40 +118,18 @@
 }
 
 // Image preview format
-.preview{
-    @include size(auto, auto);
-    max-width: 90%;
-    overflow: scroll;
-    overflow-y: hidden;
+.image-preview{
+    @include size(80%, auto);
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 5px;
     img{
-        @include size(90px, 90px);
+        @include size(130px, 130px);
         margin: 2px;
-        border: 0px;
         border-radius: 10px;
-    }
-    &::-webkit-scrollbar {
-      -webkit-appearance: none;
-    }
-    &::-webkit-scrollbar:vertical {
-      width: 5px;
-    }
-    &::-webkit-scrollbar-button:increment{
-      display: none;
-    }
-    &::-webkit-scrollbar-button {
-      display: none;
-    }
-    &::-webkit-scrollbar:horizontal {
-      height: 5px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: rgb(213, 216, 220);
-      border-radius: 20px;
-      border: 1px solid #f1f2f3;
-      margin: 5px;
-    }
-    &::-webkit-scrollbar-track {
-      border-radius: 10px;
     }
 }
 
@@ -237,13 +217,20 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
        }
        }
     }
-
     .preview {
         max-width: 60%;
     }
     .date{
-        font-size: 0.7em;
+        @include size(10%, auto);
+        font-size: 0.6em;
         padding:0px 5px;
+    }
+    .images{
+        @include size(20%, auto)
+        img{
+            @include size(30px, 30px);
+            margin: 0px 2px;
+        }
     }
 }
 

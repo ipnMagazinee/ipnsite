@@ -132,6 +132,14 @@ section {
   to {
     transform: rotate(360deg); } }
 
+.floating-button {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2; }
+
 /***********************************************************************************
                                 Header media
 ************************************************************************************/
@@ -155,9 +163,6 @@ section {
   background-color: white;
   border-radius: 10px;
   margin: 0px 0px 5px 0px; }
-  .editor-list img {
-    width: 40px;
-    height: 40px; }
 
 .tittle {
   width: 70%;
@@ -170,20 +175,107 @@ section {
 .date {
   width: 20%;
   height: auto;
+  font-size: 0.7em;
   font-family: Arial;
   text-align: right; }
 
 .images {
   width: 10%;
   height: auto;
-  padding: 0px 10px 0px 0px; }
+  margin: 0px 5px; }
+  .images img {
+    width: 35px;
+    height: 35px;
+    margin: 0px 5px; }
+
+/*********************************************
+                Publication
+*********************************************/
+form {
+  width: 98%;
+  height: auto;
+  padding: 20px 0px;
+  background-color: white; }
+  form input[type='text'] {
+    width: 80%;
+    height: 5%;
+    border: solid 1px #DDD;
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 5px 10px;
+    font-family: 'Arial';
+    font-size: 1em;
+    outline: 0px; }
+    form input[type='text']:focus {
+      border-color: #4B9DEA;
+      box-shadow: 0 0 10px rgba(102, 179, 251, 0.5); }
+  form input[type='file'] {
+    display: none; }
+  form textarea {
+    width: 80%;
+    height: 180px;
+    border: solid 1px #DDD;
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 10px 10px;
+    font-family: 'Arial';
+    font-size: 1em;
+    outline: 0px;
+    resize: none; }
+    form textarea:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 10px rgba(102, 179, 251, 0.5); }
+
+.pub-data {
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 10px 10px; }
+
+.document {
+  margin: 20px 0px; }
+  .document span {
+    font-family: Arial;
+    font-size: 1em; }
+  .document img {
+    width: 50px;
+    height: 50px; }
+
+.option {
+  margin: 0px 10px; }
+  .option img {
+    width: 50px;
+    height: 50px; }
+  .option span {
+    font-family: Arial;
+    font-size: 10px; }
+
+button {
+  width: 100px;
+  height: 30px;
+  background-color: #4B9DEA;
+  border: 0px;
+  border-radius: 10px;
+  color: white;
+  margin: 20px 0px;
+  outline: 0px; }
+  button:active {
+    opacity: 1;
+    box-shadow: 0 0 10px #66b3fb; }
 
 /*********************************************
               Editor Media Format
 *********************************************/
 @media screen and (max-device-width: 480px) {
   .date {
-    font-size: 0.7em;
-    padding: 0px 5px; } }
+    font-size: 0.6em;
+    padding: 0px 5px; }
+  .pub-data {
+    font-size: 1em; }
+  .images img {
+    width: 30px;
+    height: 30px; } }
 
 /*# sourceMappingURL=editor.css.map */
