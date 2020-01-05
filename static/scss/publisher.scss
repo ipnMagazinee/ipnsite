@@ -30,7 +30,8 @@
     margin: 0px 5px;
     img{
         @include size(35px, 35px);
-        margin: 0px 2px;
+        margin: 2px;
+        border-radius: 10px;
     }
 }
 
@@ -92,8 +93,8 @@ form{
     flex-wrap: wrap;
     margin: 10px 5px;
     img{
-        @include size(130px, 130px);
-        margin: 0px 2px;
+        @include size(200px, 200px);
+        margin: 2px;
         border-radius: 10px;
     }
 }
@@ -159,6 +160,11 @@ button{
         img{
             @include size(30px, 30px);
             margin: 0px 2px;
+        }
+    }
+    .image-preview{
+        img{
+            @include size(130px, 130px);
         }
     }
 }

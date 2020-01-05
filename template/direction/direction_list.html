@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+{% extends 'direction/direction.html' %}
+
+{% load static %}
+
+{% block content %}
+    <section class="dfc clm" id="id_editor">
+        {% for object in object_list %}
+            <div class="direction-list df aic row">
+                <a class="tittle df aic cursor" href="{% url 'direction:approve_publication' profile.name object.id %}"><span>{{ object.tittle }}</span></a>
+                <span class="date">{{ object.create_at }}</span>
+                <div class="images-list df row-r">
+                    {% if object.approved %}
+                        <img src="{% static 'img/approved.svg' %}">
+                    {% else %}
+                        <img src="{% static 'img/no_approved.svg' %}">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        <div id="id_message">
+            <span id="id_message_text"></span>
+        </div>
+    </section>
+{% endblock %}

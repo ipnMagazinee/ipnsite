@@ -127,7 +127,7 @@
     flex-wrap: wrap;
     margin: 10px 5px;
     img{
-        @include size(130px, 130px);
+        @include size(200px, 200px);
         margin: 2px;
         border-radius: 10px;
     }
@@ -230,6 +230,11 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
         img{
             @include size(30px, 30px);
             margin: 0px 2px;
+        }
+    }
+    .image-preview{
+        img{
+            @include size(130px, 130px);
         }
     }
 }

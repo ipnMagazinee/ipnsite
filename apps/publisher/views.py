@@ -27,12 +27,13 @@ class Publish(View):
     template_name = 'publisher/publish.html'
 
     def get(self, request, *data, **kwargs):
+        context = dict()
         profile = Profiles.objects.get(name=kwargs.get('name'))
         publication = Publications.objects.get(id=self.kwargs.get('id_publication'))
         images = Images.objects.filter(publication_id=publication.id)
-        context = {'profile': profile,
-                   'publication': publication,
-                   'images': images}
+        context['profile'] = profile
+        context['publication'] = publication
+        context['images'] = images
         return render(request, self.template_name, context)
 
     def post(self, request, *data, **kwargs):

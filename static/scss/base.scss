@@ -172,3 +172,72 @@ section{
         @include size(40%, 100%);
     }
 }
+
+/***********************************************************************************
+                                 Object List
+************************************************************************************/
+%object-list{
+    background-color: white;
+    border-radius: 10px;
+    margin: 0px 0px 5px 0px;
+}
+%tittle{
+    padding: 0px 10px;
+    font-family: Arial;
+    text-decoration: none;
+    color: rgb(44, 62, 80 );
+}
+%date{
+    font-size: 0.7em;
+    font-family: Arial;
+    text-align: right;
+    color: rgb(44, 62, 80 );
+}
+%images-list{
+    margin: 0px 5px;
+    img{
+        @include size(35px, 35px);
+        margin: 0px 2px;
+    }
+}
+
+/***********************************************************************************
+                                 Form
+************************************************************************************/
+.object-form{
+    @include size(98%, auto);
+    padding: 20px 0px;
+    background-color: white;
+    input[type='text']{
+        @include size(80%, 5%);
+        border: solid 1px #DDD;
+        border-radius: 10px;
+        margin: 10px 0px;
+        padding: 5px 10px;
+        font-family: 'Arial';
+        font-size: 1em;
+        outline: 0px;
+        &:focus{
+            border-color: #4B9DEA;
+            box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+        }
+    }
+    input[type='file']{
+        display: none;
+    }
+    textarea{
+            @include size(80%, 180px);
+            border: solid 1px #DDD;
+            border-radius: 10px;
+            margin: 10px 0px;
+            padding: 10px 10px;
+            font-family: 'Arial';
+            font-size: 1em;
+            outline: 0px;
+            resize: none;
+            &:focus{
+                border-color: $blue;
+                box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+            }
+        }
+}
