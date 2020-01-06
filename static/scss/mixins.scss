@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Heebo|Lobster|Stylish&display=swap');
 /********************************************************************************
                                     Mixins
 ********************************************************************************/
@@ -19,4 +19,10 @@
   font-family: 'Lobster', cursive;
   font-family: 'Stylish', sans-serif;
   font-family: 'Open Sans Condensed', sans-serif;
+}
+
+@mixin font3{
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Heebo', sans-serif;
 }

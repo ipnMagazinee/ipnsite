@@ -13,28 +13,19 @@ $green-upiicsa: #00953a;
   display: none;
 }
 
-.df{
-  display: flex;
-}
-
 .dfc{
   display: flex;
   align-items: center;
-  justify-content: center;
 }
-
-.aic{
-  align-items: center;
+.jc{
+    justify: center;
 }
-
 .clm{
   flex-direction: column;
 }
-
 .row{
   flex-direction: row;
 }
-
 .row-r{
   flex-direction: row-reverse;
 }
@@ -51,6 +42,80 @@ $green-upiicsa: #00953a;
 .blur{
   filter: blur(5px);
   -webkit-filter: blur(5px);
+}
+
+/***********************************************************************************
+                            Radio button effect
+************************************************************************************/
+
+/* Radio Button Effect and Format */
+$open-sans: 'Open Sans', 'Helvetica', sans-serif;
+
+$darkNavy: #213140;
+$teal1: #66B3FB;
+$teal2: #4B9DEA;
+$charcoal: #555555;
+$gold: #B6985A;
+
+$activeShadow: 0 0 10px rgba($teal1, .5);
+
+/* MIXINS */
+@mixin focusOutline {outline: dotted 1px #CCC; outline-offset: .45rem;}
+@mixin hideInput {width: 0; height: 0; position: absolute; left: -9999px;}
+
+.toggle {
+	margin: 10px 0em;
+	box-sizing: border-box;
+	font-size: 0;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	input {@include hideInput;}
+	input + label {
+		margin: 0;
+		padding: 0.2em 1em;
+		box-sizing: border-box;
+		position: relative;
+		display: inline-block;
+		border: solid 1px #DDD;
+		background-color: #FFF;
+		font-size: 1rem;
+		line-height: 140%;
+		font-weight: 500;
+		font-family: Arial;
+		color: rgb(44, 62, 80);
+		text-align: center;
+		box-shadow: 0 0 0 rgba(255,255,255,0);
+		transition: 	border-color .15s ease-out,
+					color .25s ease-out,
+					background-color .15s ease-out,
+					box-shadow .15s ease-out;
+
+		/* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
+		/*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
+		/* ----- */
+
+		&:first-of-type {border-radius: 6px 0 0 6px; border-right: none;}
+		&:last-of-type {border-radius: 0 6px 6px 0; border-left: none;}
+	}
+	input:hover + label {border-color: $darkNavy;}
+	input:checked + label {
+		background-color: $teal2;
+		color: #FFF;
+		box-shadow: $activeShadow;
+		border-color: $teal2;
+		z-index: 1;
+	}
+	input:focus + label {@include focusOutline;}
+
+	@media screen and (max-device-width: 480px) {
+        .toggle{
+            input + label {
+                padding: 0.2em 0.5em;
+            }
+        }
+    }
 }
 
 /***********************************************************************************
@@ -105,6 +170,7 @@ header{
 
 section{
     @include size(100%, auto);
+    @extend .dfc, .clm;
 }
 
 .logo{
@@ -131,8 +197,6 @@ section{
         color: white;
     }
 }
-
-
 .preloader {
   width: 40px;
   height: 40px;
@@ -174,38 +238,61 @@ section{
 }
 
 /***********************************************************************************
-                                 Object List
+                          Styles for publications list
 ************************************************************************************/
-%object-list{
+.object-list{
+    @include size(98%, 50px);
+    @extend .dfc;
     background-color: white;
     border-radius: 10px;
     margin: 0px 0px 5px 0px;
 }
-%tittle{
+.tittle{
+    @include size(70%, 100%)
+    @extend .dfc;
     padding: 0px 10px;
     font-family: Arial;
     text-decoration: none;
     color: rgb(44, 62, 80 );
+    @media screen and (max-device-width: 480px) {
+        @include size(60%, 100%)
+    }
 }
-%date{
+.date{
+    @include size(15%, 100%);
+    @extend .dfc;
     font-size: 0.7em;
     font-family: Arial;
     text-align: right;
     color: rgb(44, 62, 80 );
+    @media screen and (max-device-width: 480px) {
+        @include size(10%, 100%)
+        font-size: 0.6em;
+    }
 }
-%images-list{
+.images-list{
+    @include size(15%, auto);
+    @extend .dfc, .row-r;
     margin: 0px 5px;
     img{
         @include size(35px, 35px);
         margin: 0px 2px;
+    }
+    /* Media */
+    @media screen and (max-device-width: 480px) {
+        @include size(30%, 100%)
+        img{
+            @include size(30px, 30px);
+        }
     }
 }
 
 /***********************************************************************************
                                  Form
 ************************************************************************************/
-.object-form{
+form{
     @include size(98%, auto);
+    @extend .dfc, .clm;
     padding: 20px 0px;
     background-color: white;
     input[type='text']{
@@ -226,18 +313,153 @@ section{
         display: none;
     }
     textarea{
-            @include size(80%, 180px);
-            border: solid 1px #DDD;
-            border-radius: 10px;
-            margin: 10px 0px;
-            padding: 10px 10px;
-            font-family: 'Arial';
-            font-size: 1em;
-            outline: 0px;
-            resize: none;
-            &:focus{
-                border-color: $blue;
-                box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
-            }
+        @include size(80%, 180px);
+        border: solid 1px #DDD;
+        border-radius: 10px;
+        margin: 10px 0px;
+        padding: 10px 10px;
+        font-family: 'Arial';
+        font-size: 1em;
+        outline: 0px;
+        resize: none;
+        &:focus{
+            border-color: $blue;
+            box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
         }
+    }
+}
+
+.form-data{
+    @extend .dfc;
+    @include font3;
+    margin: 10px 10px;
+    @media screen and (max-device-width: 480px){
+        text-align: center;
+    }
+}
+
+.images-preview{
+    @include size(80%, auto);
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 5px;
+    img{
+        @include size(200px, 200px);
+        margin: 2px;
+        border-radius: 10px;
+         @media screen and (max-device-width: 480px) {
+            @include size(90%, 200px);
+         }
+    }
+}
+.document{
+    @include size(auto, auto);
+    @extend .dfc, .clm;
+    margin: 10px 0px;
+    a{
+        @extend .dfc, .clm;
+        text-decoration:none;
+    }
+    img{
+        @include size(50px, 50px);
+    }
+    span{
+        @extend .dfc;
+        font-family: Arial;
+        font-size: 1em;
+        color: rgb(44, 62, 80 );
+    }
+    label{
+        @extend .dfc;
+        font-family: Arial;
+        font-size: 1em;
+        color: rgb(44, 62, 80 );
+    }
+}
+/***********************************************************************************
+                             button submit
+************************************************************************************/
+.btn-send{
+    @include size(100px, 30px);
+    background-color: #4B9DEA;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    margin: 20px 0px;
+    outline: 0px;
+    &:active{
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(102, 179, 251, 1);
+    }
+}
+
+/***********************************************************************************
+                             check
+************************************************************************************/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  &-text{
+    font-family: Arial;
+    color: rgb(44, 62, 80);
+    margin: 5px 0px;
+  }
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: rgb(231, 76, 60);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(231, 76, 60);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

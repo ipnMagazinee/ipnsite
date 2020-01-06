@@ -4,12 +4,12 @@
 {% load static %}
 
 {% block content %}
-    <section class="dfc clm" id="id_editor">
+    <section id="id_editor">
         {% for object in object_list %}
-            <div class="direction-list df aic row">
-                <a class="tittle df aic cursor" href="{% url 'direction:approve_publication' profile.name object.id %}"><span>{{ object.tittle }}</span></a>
+            <div class="object-list">
+                <a class="tittle cursor" href="{% url 'direction:approve_publication' profile.name object.id %}"><span>{{ object.tittle }}</span></a>
                 <span class="date">{{ object.create_at }}</span>
-                <div class="images-list df row-r">
+                <div class="images-list">
                     {% if object.approved %}
                         <img src="{% static 'img/approved.svg' %}">
                     {% else %}

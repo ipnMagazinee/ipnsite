@@ -112,7 +112,7 @@ $(document).on('click', '#id_btn_update', function(){
 $(document).on('click', '.delete', function(){
     let url = $(this).data('url');
     let id_publication = $(this).data('id');
-    let publication = $(this).parents('.user-list');
+    let publication = $(this).parents('.object-list');
     let csrftoken = $('input[name="csrfmiddlewaretoken"]').val();
 
     let request = $.ajax({

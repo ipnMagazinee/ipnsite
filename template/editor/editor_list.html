@@ -5,12 +5,12 @@
 {% load static %}
 
 {% block content %}
-    <section class="dfc clm" id="id_editor">
+    <section id="id_editor">
         {% for object in object_list %}
-            <div class="editor-list df aic row">
+            <div class="object-list">
                 <a class="tittle df aic cursor" href="{% url 'editor:review' profile.name object.id %}"><span>{{ object.tittle }}</span></a>
                 <span class="date">{{ object.create_at }}</span>
-                <div class="images df row-r">
+                <div class="images-list">
                     {% if object.reviewed %}
                         <img src="{% static 'img/reviewed.png' %}">
                     {% else %}

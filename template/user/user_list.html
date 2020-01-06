@@ -4,13 +4,13 @@
 {% load static %}
 
 {% block content %}
-    <section class="dfc clm" id="id_user">
+    <section id="id_user">
         {#  <div class="preloader"></div> #}
         {% for object in object_list %}
-            <div class="user-list df aic row">
-                <a class="tittle df aic" href="{% url 'user:update_publication' object.id %}"><span>{{ object.tittle }}</span></a>
+            <div class="object-list">
+                <a class="tittle" href="{% url 'user:update_publication' object.id %}"><span>{{ object.tittle }}</span></a>
                 <span class="date">{{ object.create_at }}</span>
-                <div class="images df row-r">
+                <div class="images-list">
                     <img src="{% static 'img/btn_delete.png' %}"
                          class="cursor delete"
                          data-url="{% url 'user:delete_publication' %}"
@@ -25,5 +25,5 @@
             <span id="id_message_text"></span>
         </div>
     </section>
-    <a href="{% url 'user:new_publication' profile.name %}"><img class="btn_add" src="{% static 'img/btn_add.png' %}"></a>
+    <a href="{% url 'user:new_publication' profile.name %}"><img class="floating-button" src="{% static 'img/btn_add.png' %}"></a>
 {% endblock %}

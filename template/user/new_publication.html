@@ -4,10 +4,9 @@
 {% load static %}
 
 {% block content %}
-<section class="dfc clm" id="id_user">
+<section id="id_user">
     {#  <div class="preloader"></div> #}
-    <div class="new-pub dfc clm">
-        <form class="dfc clm" method="post" action="{% url 'user:new_publication' profile.name %}" id="id_newPub_form">
+    <form method="post" action="{% url 'user:new_publication' profile.name %}" id="id_newPub_form">
             {% csrf_token %}
             {# Publication Type #}
             <div class="dfc clm">
@@ -56,7 +55,7 @@
             {# Description #}
             <textarea name="description" id="id_description" placeholder="Description"></textarea>
             {# Documents #}
-            <div class="dfc clm">
+            <div class="document">
                 <label for="id_file">
                     <img class="img" src="{% static 'img/document.png' %}">
                 </label>
@@ -64,23 +63,22 @@
                 <label id="id_doc_name">Add a document (optional)</label>
             </div>
             {# Images #}
-            <div class="dfc clm" id="id_image_content">
-    <label for="id_image">
-        <img class="img" src="{% static 'img/image.png' %}">
-    </label>
-    <input type="file" name="image" id="id_image" accept="image/jpeg, image/png" multiple >
-    <label id="id_label_image">Add an image (optional)</label>
-</div>
-            {# Image pre-view #}
-            <div class="image-preview df row" id="id_pre_view">
+            <div class="document" id="id_image_content">
+                <label for="id_image">
+                    <img class="img" src="{% static 'img/image.png' %}">
+                </label>
+                <input type="file" name="image" id="id_image" accept="image/jpeg, image/png" multiple >
+                <label id="id_label_image">Add an image (optional)</label>
             </div>
-            <button type="button" class="btn" id="id_btn_send">Send</button>
+            {# Image preview #}
+            <div class="images-preview" id="id_pre_view">
+            </div>
+            <button type="button" class="btn-send" id="id_btn_send">Send</button>
         </form>
-    </div>
     <div id="id_message">
         <span id="id_message_text"></span>
     </div>
-    <a href="{% url 'user:user' profile.name %}"><img class="btn_add" src="{% static 'img/btn_back.png' %}"></a>
+    <a href="{% url 'user:user' profile.name %}"><img class="floating-button" src="{% static 'img/btn_back.png' %}"></a>
 </section>
 {% endblock %}
 

@@ -3,30 +3,36 @@
 {% load static %}
 
 {% block content %}
-<section class="dfc clm">
-    <form class="dfc clm" method="post" action="{% url 'direction:approve_publication' profile.name publication.id %}" id="id_review_form">
+<section>
+    <form method="post" action="{% url 'direction:approve_publication' profile.name publication.id %}" id="id_review_form">
         {% csrf_token %}
-        <div>
-            <span class="pub-data">Publication Type:  {{ publication.type_upper }}</span>
-            <span class="pub-data">Addressed to:  {{ publication.address_to_upper }}</span>
+        <div class="form-data">
+            <span>Publication Type:  {{ publication.type_upper }}</span>
+            <span>Addressed to:  {{ publication.address_to_upper }}</span>
         </div>
         <input type="text" value="{{ publication.tittle }}" name="tittle" disabled>
         <textarea name="description" disabled>{{ publication.description }}</textarea>
         {% if publication.file %}
-            <div class="document df aic row">
+            <div class="document">
                 <a href="{{ publication.file.url }}">
-                    <img src="{% static 'img/document.png' %}" alt="Download">
+                    <img src="{% static 'img/document.png' %}" alt="Download" id="download_document">
+                    <span for="download_document">{{ publication.file_name }}</span>
                 </a>
-                <span>{{ publication.file_name }}</span>
             </div>
         {% endif %}
 
-        <div class="image-preview">
+        <div class="images-preview">
         {% for object in images %}
             <img src="{{ object.image.url }}" alt="{{ object.name }}">
         {% endfor %}
         </div>
-        <button type="submit" id="btn_save">Approve</button>
+        {# urgent #}
+        <span class="switch-text">Urgent</span>
+        <label class="switch">
+            <input type="checkbox" checked name="urgent">
+            <span class="slider round"></span>
+        </label>
+        <button type="submit" id="btn_save" class="btn-send">Approve</button>
     </form>
     <a href="{% url 'direction:direction' profile.name %}"><img class="floating-button" src="{% static 'img/btn_back.png' %}"></a>
 </section>
