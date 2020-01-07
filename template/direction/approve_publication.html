@@ -29,7 +29,11 @@
         {# urgent #}
         <span class="switch-text">Urgent</span>
         <label class="switch">
-            <input type="checkbox" checked name="urgent">
+            {% if publication.urgent %}
+                <input type="checkbox" checked name="urgent">
+            {% else %}
+                <input type="checkbox" name="urgent">
+            {% endif %}
             <span class="slider round"></span>
         </label>
         <button type="submit" id="btn_save" class="btn-send">Approve</button>

@@ -36,5 +36,10 @@ class ApprovePublication(View):
         profile = Profiles.objects.get(name=kwargs.get('name'))
         publication = Publications.objects.get(id=kwargs.get('id_publication'))
         publication.approved = True
+        urgent = request.POST.get('urgent')
+        if urgent == 'on':
+            publication.urgent = True
+        else:
+            publication.urgent = False
         publication.save()
         return HttpResponseRedirect(reverse('direction:direction', args=[profile.name]))

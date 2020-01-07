@@ -1,17 +1,23 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+@import url("https://fonts.googleapis.com/css?family=Heebo|Lobster|Stylish&display=swap");
+/********************************************************************************
+                                    Mixins
+********************************************************************************/
+/***********************************************************************************
+                                        Effects
+ **********************************************************************************/
+.blur {
+  filter: blur(5px);
+  -webkit-filter: blur(5px); }
+
 .dn {
   display: none; }
 
-.df {
-  display: flex; }
-
 .dfc {
   display: flex;
-  align-items: center;
-  justify-content: center; }
-
-.aic {
   align-items: center; }
+
+.jc {
+  justify: center; }
 
 .clm {
   flex-direction: column; }
@@ -19,26 +25,66 @@
 .row {
   flex-direction: row; }
 
-.fdrow {
-  flex-direction: row; }
-
-.fdrowr {
+.row-r {
   flex-direction: row-reverse; }
 
-/********************************************************************************
-  Mixin
-********************************************************************************/
-/***********************************************************************************
-Effects
- **********************************************************************************/
-.blur {
-  filter: blur(5px);
-  -webkit-filter: blur(5px); }
+.cursor {
+  cursor: pointer; }
 
 /***********************************************************************************
-Message
-**********************************************************************************/
-.msg-error, .msg-success {
+                                      Header
+************************************************************************************/
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: auto;
+  background-color: #ebedef; }
+
+header {
+  width: 100%;
+  height: 45px;
+  background-color: white;
+  margin: 0px 0px 10px 0px; }
+
+.logo {
+  width: 85%;
+  height: 100%; }
+  .logo img {
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px; }
+  .logo span {
+    font-size: 1em;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Oswald', sans-serif; }
+  @media screen and (max-device-width: 480px) {
+    .logo {
+      width: 60%;
+      height: 100%; } }
+.data {
+  width: 15%;
+  height: 100%;
+  background-color: #701c45; }
+  .data img {
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px; }
+  .data span {
+    font-size: 1em;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white; }
+  @media screen and (max-device-width: 480px) {
+    .data {
+      width: 40%;
+      height: 100%; } }
+/***********************************************************************************
+                                Message: Success, Error
+************************************************************************************/
+.msg-content, .msg-error, .msg-success {
   width: auto;
   height: auto;
   border: 0px;
