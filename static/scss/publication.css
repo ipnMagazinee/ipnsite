@@ -2,10 +2,6 @@
 /********************************************************************************
                                     Mixins
 ********************************************************************************/
-@import url("https://fonts.googleapis.com/css?family=Heebo|Lobster|Stylish&display=swap");
-/********************************************************************************
-                                    Mixins
-********************************************************************************/
 /***********************************************************************************
                                         Effects
  **********************************************************************************/
@@ -14,17 +10,17 @@
   filter: blur(5px);
   -webkit-filter: blur(5px); }
 
-.dn {
+.dn, .user-options {
   display: none; }
 
-.dfc, .document label, .document span, .document a, .document, .form-data, form, .images-list, .date, .tittle, .object-list, section {
+.dfc, .options, .document label, .document span, .document a, .document, .form-data, form, .images-list, .date, .tittle, .object-list, .user-data, .logo, header, section {
   display: flex;
   align-items: center; }
 
-.jc {
-  justify: center; }
+.jc, .user-data {
+  justify-content: center; }
 
-.clm, .document a, .document, form, section {
+.clm, .options, .document a, .document, form, section {
   flex-direction: column; }
 
 .row {
@@ -46,46 +42,6 @@ html, body {
   height: auto;
   background-color: #ebedef; }
 
-header {
-  width: 100%;
-  height: 45px;
-  background-color: white;
-  margin: 0px 0px 10px 0px; }
-
-.logo {
-  width: 85%;
-  height: 100%; }
-  .logo img {
-    width: 30px;
-    height: 30px;
-    margin: 0px 10px; }
-  .logo span {
-    font-size: 1em;
-    font-family: 'Lobster', cursive;
-    font-family: 'Stylish', sans-serif;
-    font-family: 'Oswald', sans-serif; }
-  @media screen and (max-device-width: 480px) {
-    .logo {
-      width: 60%;
-      height: 100%; } }
-.data {
-  width: 15%;
-  height: 100%;
-  background-color: #701c45; }
-  .data img {
-    width: 30px;
-    height: 30px;
-    margin: 0px 5px; }
-  .data span {
-    font-size: 1em;
-    font-family: 'Lobster', cursive;
-    font-family: 'Stylish', sans-serif;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: white; }
-  @media screen and (max-device-width: 480px) {
-    .data {
-      width: 40%;
-      height: 100%; } }
 /***********************************************************************************
                                 Message: Success, Error
 ************************************************************************************/
@@ -126,6 +82,81 @@ section {
   width: 100%;
   height: auto; }
 
+/***********************************************************************************
+                    Header : User, Editor, Publisher, Direction
+************************************************************************************/
+header {
+  width: 100%;
+  height: 45px;
+  background-color: white;
+  margin: 0px 0px 10px 0px; }
+
+.logo {
+  width: 85%;
+  height: 100%; }
+  .logo img {
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px; }
+  .logo span {
+    font-size: 1em;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Oswald', sans-serif; }
+  @media screen and (max-device-width: 480px) {
+    .logo {
+      width: 50%;
+      height: 100%; } }
+.user-data {
+  width: 15%;
+  height: 100%;
+  background-color: #701c45; }
+  .user-data img {
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px; }
+  .user-data span {
+    font-size: 1em;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white; }
+  @media screen and (max-device-width: 480px) {
+    .user-data {
+      width: 50%;
+      height: 100%; } }
+/* Sign up, settings */
+.user-options {
+  width: 15%;
+  height: 100%; }
+  .user-options a {
+    text-decoration: none; }
+  .user-options span {
+    padding: 5px 10px;
+    background-color: #d5dbdb;
+    border-radius: 10px;
+    font-size: 1em;
+    color: #34495e;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Heebo', sans-serif;
+    text-align: center; }
+    @media screen and (max-device-width: 480px) {
+      .user-options span {
+        font-size: 0.7em; } }
+  .user-options img {
+    width: 30px;
+    height: 30px;
+    margin: 5px; }
+  @media screen and (max-device-width: 480px) {
+    .user-options {
+      width: 50%;
+      height: 100%; }
+      .user-options .user-data {
+        width: 50%;
+        height: 100%; }
+      .user-options .logo {
+        display: none; } }
 /***********************************************************************************
                           Radio button: User
 ************************************************************************************/
@@ -169,6 +200,10 @@ section {
     .toggle input + label:last-of-type {
       border-radius: 0 6px 6px 0;
       border-left: none; }
+    @media screen and (max-device-width: 480px) {
+      .toggle input + label {
+        padding: 0.2em 0.5em;
+        font-size: 0.8rem; } }
   .toggle input:hover + label {
     border-color: #213140; }
   .toggle input:checked + label {
@@ -180,9 +215,7 @@ section {
   .toggle input:focus + label {
     outline: dotted 1px #CCC;
     outline-offset: .45rem; }
-  @media screen and (max-device-width: 480px) {
-    .toggle .toggle input + label {
-      padding: 0.2em 0.5em; } }
+
 /***********************************************************************************
                                     Pre loader: User
 ************************************************************************************/
@@ -343,6 +376,16 @@ form {
     font-family: Arial;
     font-size: 1em;
     color: #2c3e50; }
+
+/**/
+.options {
+  width: 100%;
+  height: auto; }
+  .options-text {
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1em; }
 
 /***********************************************************************************
                                  Button submit

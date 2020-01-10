@@ -9,8 +9,8 @@
     <form class="dfc clm" method="post" action="{% url 'user:update_publication' publication.id %}" id="id_updPub_form">
             {% csrf_token %}
             {# Publication Type #}
-            <div class="dfc clm">
-                <span>Publication type</span>
+            <div class="options">
+                <span class="options-text">Publication type</span>
                 <div class="toggle">
                     {# ------------ Notice ------------------ #}
                     {% if publication.type.name == 'notice' %}
@@ -50,8 +50,8 @@
                 </div>
             </div>
             {# Addressed to #}
-            <div class="dfc clm">
-                <span>Addressed to</span>
+            <div class="options">
+                <span class="options-text">Addressed to</span>
                 <div class="toggle">
                     {#-------------- Community ----------------#}
                     {% if publication.addressed_to.name == 'community' %}

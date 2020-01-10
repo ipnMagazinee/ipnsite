@@ -5,12 +5,13 @@ html, body{
   margin: 0px;
   padding: 0px;
   @include size(100%, 100%);
+  @extend .dfc, .jc, .clm;
   background-color: $bg-color;
 }
 
-// account.js section
 section {
   @include size(25%, 85%);
+  @extend .dfc, .clm;
   background-color: white;
   border-radius: 10px;
   transition: all 500ms;
@@ -26,33 +27,37 @@ section {
   Account styles
 */
 .logo{
-  @include size(80%, auto);
+  @include size(70%, 15%);
+  @extend .dfc, .jc;
   margin: 0px 0px 15px 0px;
   &-text{
-    @include size(100%, auto);
-    color: rgb(0,149,58);
+    @include size(auto, auto);
+    color: black;
     span{
       font-size: 1.5em;
       @include font1;
     }
-
   }
   &-img{
-    @include size(100%, auto);
+    @include size(auto, auto);
+    margin: 2px;
     img{
       @include size(30px, 30px);
     }
   }
 }
-.account {
-  @include size(70%, auto);
+
+form {
+  @include size(70%, 85%);
+  @extend .dfc, .clm;
   input {
     @include size(90%, 30px);
     margin: 5px 0px;
     padding: 0px 10px;
+    color: rgb(44, 62, 80);
     border: 1px solid rgb(171, 178, 185);
     border-radius: 10px;
-    @include font2;
+    @include font3;
     font-size: 1em;
     outline: 0px;
   }
@@ -65,34 +70,31 @@ section {
     border-radius: 10px;
     color: white;
     outline: 0px;
-
     &:active {
       background-color: rgb(170, 183, 184);
       border: 1px solid rgb(170, 183, 184);
+      }
     }
-  }
   img{
     @include size(30px, 30px);
     margin: 0px 5px;
   }
-  &-tittle {
-    font-size: 2em;
-    @include font2;
-  }
-  .txt {
-    @include font2;
-    color: rgb(93, 109, 126);
+}
 
+.sld{
+    color: rgb(171, 178, 185);
+}
+/* Text for spans */
+.txt {
+    @include font3;
+    color: rgb(93, 109, 126);
     &:hover {
       color: rgb(112, 28, 69);
       cursor: pointer;
     }
 
   }
-  .sld{
-    color: rgb(171, 178, 185);
-  }
-}
+
 .list{
   margin: 0px;
   padding: 20px 0px;
@@ -138,4 +140,3 @@ section {
     padding: 30px 0px;
   }
 }
-

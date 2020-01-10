@@ -19,19 +19,23 @@
     {% endblock %}
 </head>
 <body>
-<header class="dfc drowr">
-    <div class="logo df aic">
+<header>
+    <div class="logo" id="id_logo">
         <img src="{% static 'img/logo.png' %}">
         <span>Communication</span>
     </div>
-    <div class="data dfc">
-        <img src="{% static 'img/logo_ipn.png' %}">
+    <div class="user-data" id="id_user_data">
+        <img src="{% static 'img/logo_ipn.svg' %}">
         <span>{{ profile.name }}</span>
         {% if profile.image %}
             <img src="{{ profile.image.url }}">
         {% else %}
             <img src="{% static 'img/profile.png' %}">
         {% endif %}
+    </div>
+    <div class="user-options" id="id_user_options">
+        <a href="{% url 'account:signOff' profile.name %}"><span>SignOff</span></a>
+        <img src="{% static 'img/settings.svg' %}">
     </div>
     {% csrf_token %}
 </header>

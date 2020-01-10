@@ -3,26 +3,22 @@
 {% load static %}
 
 {% block content %}
-    <div class="account dfc clm" spellcheck="false" >
-        <span class="account-tittle">Sign Up</span>
+    <form action="{% url 'account:signUp' %}" method="post" spellcheck="false" id="id_signUp_form">
         {% csrf_token %}
+        <span class="tittle">Sign Up</span>
         <input type="text" name="name" placeholder="Username" maxlength="50" required="" id="id_name">
         <input type="email" name="email" placeholder="Email" maxlength="100" required="" id="id_email">
         <input type="password" name="password" placeholder="Password" maxlength="20" required="" id="id_password">
         <input type="password" id="id_conf_password" placeholder="Confirm password">
         <div class="area dfc row" data-url="{% url 'account:get_area' %}">
-            <input type="text" placeholder="Area"
-                   disabled name="area"
-                   id="id_area" data-id="0" >
+            <input type="text" placeholder="Area" name="area" id="id_area" required>
             <img src="{% static 'img/circle.png' %}">
         </div>
         <div class="dept dfc row">
-            <input type="text" placeholder="Department"
-                   disabled name="department"
-                   id="id_dep" data-id="0">
+            <input type="text" name="department" placeholder="Department" maxlength="50" id="id_department" required>
             <img src="{% static 'img/circle.png' %}">
         </div>
-        <button id="btn_signUp" data-url="{% url 'account:signUp' %}">Sign up</button>
+        <button type="button" id="btn_signUp" data-url="{% url 'account:signUp' %}">Sign up</button>
         <span class="txt"><a href="{% url 'account:login' %}">Login here.</a></span>
-    </div>
+    </form>
 {% endblock %}

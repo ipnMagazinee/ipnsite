@@ -9,8 +9,8 @@
     <form method="post" action="{% url 'user:new_publication' profile.name %}" id="id_newPub_form">
             {% csrf_token %}
             {# Publication Type #}
-            <div class="dfc clm">
-                <span>Publication type</span>
+            <div class="options">
+                <span class="options-text">Publication type</span>
                 <div class="toggle">
                     {# Notice #}
                     <input type="radio" name="publication" value="notice" id="id_notice" checked/>
@@ -30,8 +30,8 @@
                 </div>
             </div>
             {# Addressed to #}
-            <div class="dfc clm">
-                <span>Addressed to</span>
+            <div class="options">
+                <span class="options-text">Addressed to</span>
                 <div class="toggle">
                     {# Community #}
                     <input type="radio" name="address" value="community" id="id_community" checked="checked" />

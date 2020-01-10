@@ -1,3 +1,4 @@
+from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -15,7 +16,10 @@ class DirectionListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(DirectionListView, self).get_context_data()
-        context['profile'] = Profiles.objects.get(name=self.kwargs.get('name'))
+        profile = Profiles.objects.get(name=self.kwargs.get('name'))
+        if not profile.login:
+            raise PermissionDenied
+        context['profile'] = profile
         return context
 
 

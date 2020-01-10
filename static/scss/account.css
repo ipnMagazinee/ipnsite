@@ -12,14 +12,14 @@
 .dn {
   display: none; }
 
-.dfc {
+.dfc, form, .logo, section, html, body {
   display: flex;
   align-items: center; }
 
-.jc {
-  justify: center; }
+.jc, .logo, html, body {
+  justify-content: center; }
 
-.clm {
+.clm, form, section, html, body {
   flex-direction: column; }
 
 .row {
@@ -41,46 +41,6 @@ html, body {
   height: auto;
   background-color: #ebedef; }
 
-header {
-  width: 100%;
-  height: 45px;
-  background-color: white;
-  margin: 0px 0px 10px 0px; }
-
-.logo {
-  width: 85%;
-  height: 100%; }
-  .logo img {
-    width: 30px;
-    height: 30px;
-    margin: 0px 10px; }
-  .logo span {
-    font-size: 1em;
-    font-family: 'Lobster', cursive;
-    font-family: 'Stylish', sans-serif;
-    font-family: 'Oswald', sans-serif; }
-  @media screen and (max-device-width: 480px) {
-    .logo {
-      width: 60%;
-      height: 100%; } }
-.data {
-  width: 15%;
-  height: 100%;
-  background-color: #701c45; }
-  .data img {
-    width: 30px;
-    height: 30px;
-    margin: 0px 5px; }
-  .data span {
-    font-size: 1em;
-    font-family: 'Lobster', cursive;
-    font-family: 'Stylish', sans-serif;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: white; }
-  @media screen and (max-device-width: 480px) {
-    .data {
-      width: 40%;
-      height: 100%; } }
 /***********************************************************************************
                                 Message: Success, Error
 ************************************************************************************/
@@ -139,41 +99,43 @@ section {
   Account styles
 */
 .logo {
-  width: 80%;
-  height: auto;
+  width: 70%;
+  height: 15%;
   margin: 0px 0px 15px 0px; }
   .logo-text {
-    width: 100%;
+    width: auto;
     height: auto;
-    color: #00953a; }
+    color: black; }
     .logo-text span {
       font-size: 1.5em;
       font-family: 'Lobster', cursive;
       font-family: 'Stylish', sans-serif;
       font-family: 'Oswald', sans-serif; }
   .logo-img {
-    width: 100%;
-    height: auto; }
+    width: auto;
+    height: auto;
+    margin: 2px; }
     .logo-img img {
       width: 30px;
       height: 30px; }
 
-.account {
+form {
   width: 70%;
-  height: auto; }
-  .account input {
+  height: 85%; }
+  form input {
     width: 90%;
     height: 30px;
     margin: 5px 0px;
     padding: 0px 10px;
+    color: #2c3e50;
     border: 1px solid #abb2b9;
     border-radius: 10px;
     font-family: 'Lobster', cursive;
     font-family: 'Stylish', sans-serif;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Heebo', sans-serif;
     font-size: 1em;
     outline: 0px; }
-  .account button {
+  form button {
     width: 95%;
     height: 35px;
     margin: 5px 0px;
@@ -183,28 +145,26 @@ section {
     border-radius: 10px;
     color: white;
     outline: 0px; }
-    .account button:active {
+    form button:active {
       background-color: #aab7b8;
       border: 1px solid #aab7b8; }
-  .account img {
+  form img {
     width: 30px;
     height: 30px;
     margin: 0px 5px; }
-  .account-tittle {
-    font-size: 2em;
-    font-family: 'Lobster', cursive;
-    font-family: 'Stylish', sans-serif;
-    font-family: 'Open Sans Condensed', sans-serif; }
-  .account .txt {
-    font-family: 'Lobster', cursive;
-    font-family: 'Stylish', sans-serif;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #5d6d7e; }
-    .account .txt:hover {
-      color: #701c45;
-      cursor: pointer; }
-  .account .sld {
-    color: #abb2b9; }
+
+.sld {
+  color: #abb2b9; }
+
+/* Text for spans */
+.txt {
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Heebo', sans-serif;
+  color: #5d6d7e; }
+  .txt:hover {
+    color: #701c45;
+    cursor: pointer; }
 
 .list {
   margin: 0px;

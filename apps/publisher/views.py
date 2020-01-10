@@ -1,6 +1,7 @@
 import os
 
 from PIL import Image
+from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import ListView, View
 from django.shortcuts import render, reverse
@@ -18,7 +19,10 @@ class PublisherView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(PublisherView, self).get_context_data()
-        context['profile'] = Profiles.objects.get(name=self.kwargs.get('name'))
+        profile = Profiles.objects.get(name=self.kwargs.get('name'))
+        if not profile.login:
+            raise PermissionDenied
+        context['profile'] = profile
         return context
 
 

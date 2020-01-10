@@ -31,7 +31,7 @@ class Profiles(ModelBase):
     area = models.ForeignKey(Area, on_delete=models.CASCADE)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     login = models.BooleanField(default=False)
-    permission = models.SmallIntegerField(default=1, null=True, blank=True)
+    role = models.SmallIntegerField(default=1, null=True, blank=True)
     image = models.ImageField(upload_to=settings.PROFILE_IMAGE, null=True, blank=True)
 
 

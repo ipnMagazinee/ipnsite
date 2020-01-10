@@ -1,5 +1,4 @@
 
-@import 'mixins.scss';
 @import 'base.scss';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
@@ -9,6 +8,81 @@
 section{
     @include size(100%, auto);
     @extend .dfc, .clm;
+}
+
+/***********************************************************************************
+                    Header : User, Editor, Publisher, Direction
+************************************************************************************/
+header{
+  @include size(100%, 45px);
+  @extend .dfc;
+  background-color: white;
+  margin: 0px 0px 10px 0px;
+}
+
+.logo{
+    @include size(85%, 100%);
+    @extend .dfc;
+    img{
+        @include size(30px, 30px);
+        margin: 0px 10px;
+    }
+    span{
+        font-size: 1em;
+        @include font1;
+    }
+    @media screen and (max-device-width: 480px) {
+        @include size(50%, 100%);
+    }
+}
+
+.user-data{
+    @include size(15%, 100%);
+    @extend .dfc, .jc;
+    background-color: $gda-color;
+    img{ // user image
+        @include size(30px, 30px);
+        margin: 0px 5px;
+    }
+    span{ // user name
+        font-size: 1em;
+        @include font2;
+        color: white;
+    }
+    @media screen and (max-device-width: 480px) {
+        @include size(50%, 100%);
+    }
+}
+
+/* Sign up, settings */
+.user-options{
+    @include size(15%, 100%);
+    //@extend .dfc, .jc, .row;
+    @extend .dn;
+    a{
+        text-decoration: none;
+    }
+    span{
+        padding: 5px 10px;
+        background-color: rgb(213, 219, 219);
+        border-radius: 10px;
+        font-size: 1em;
+        color: rgb(52, 73, 94);
+        @include font3;
+        text-align: center;
+        @media screen and (max-device-width: 480px){
+            font-size: 0.7em;
+        }
+    }
+    img{
+        @include size(30px, 30px);
+        margin: 5px;
+    }
+    @media screen and (max-device-width:480px){
+        @include size(50%, 100%);
+        .user-data{ @include size(50%, 100%);}
+        .logo{display: none;}
+    }
 }
 
 /***********************************************************************************
@@ -62,9 +136,12 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
 		/* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
 		/*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
 		/* ----- */
-
 		&:first-of-type {border-radius: 6px 0 0 6px; border-right: none;}
 		&:last-of-type {border-radius: 0 6px 6px 0; border-left: none;}
+		@media screen and (max-device-width:480px){
+		    padding: 0.2em 0.5em;
+		    font-size: 0.8rem;
+		}
 	}
 	input:hover + label {border-color: $darkNavy;}
 	input:checked + label {
@@ -75,14 +152,6 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
 		z-index: 1;
 	}
 	input:focus + label {@include focusOutline;}
-
-	@media screen and (max-device-width: 480px) {
-        .toggle{
-            input + label {
-                padding: 0.2em 0.5em;
-            }
-        }
-    }
 }
 
 /***********************************************************************************
@@ -131,14 +200,14 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
     margin: 0px 0px 5px 0px;
 }
 .tittle{
-    @include size(70%, 100%)
+    @include size(70%, 100%);
     @extend .dfc;
     padding: 0px 10px;
     font-family: Arial;
     text-decoration: none;
     color: rgb(44, 62, 80 );
     @media screen and (max-device-width: 480px) {
-        @include size(60%, 100%)
+        @include size(60%, 100%);
     }
 }
 .date{
@@ -262,6 +331,18 @@ form{
         color: rgb(44, 62, 80 );
     }
 }
+
+/**/
+
+.options{
+    @include size(100%, auto);
+    @extend .dfc, .clm;
+    &-text{
+        @include font3;
+        font-size: 1em;
+    }
+}
+
 /***********************************************************************************
                                  Button submit
 ************************************************************************************/

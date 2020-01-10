@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.http import JsonResponse
-from django.template.loader import render_to_string
+from django.http import JsonResponse, Http404
+from django.core.exceptions import PermissionDenied
 from django.views.generic import ListView, View
 from django.shortcuts import render, reverse
 # models
@@ -21,6 +21,8 @@ class UserView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         profile = Profiles.objects.get(name=self.kwargs.get('name'))
+        if not profile.login:
+            raise PermissionDenied
         context['profile'] = profile
         return context
 

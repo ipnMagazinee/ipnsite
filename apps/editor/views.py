@@ -1,4 +1,6 @@
 # models
+from django.core.exceptions import PermissionDenied
+
 from apps.models.models import Profiles, Publications
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
@@ -20,6 +22,8 @@ class EditorListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(EditorListView, self).get_context_data()
         profile = Profiles.objects.get(name=self.kwargs.get('name'))
+        if not profile.login:
+            raise PermissionDenied
         context['profile'] = profile
         return context
 

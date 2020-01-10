@@ -17,7 +17,7 @@
   align-items: center; }
 
 .jc {
-  justify: center; }
+  justify-content: center; }
 
 .clm {
   flex-direction: column; }
@@ -41,46 +41,6 @@ html, body {
   height: auto;
   background-color: #ebedef; }
 
-header {
-  width: 100%;
-  height: 45px;
-  background-color: white;
-  margin: 0px 0px 10px 0px; }
-
-.logo {
-  width: 85%;
-  height: 100%; }
-  .logo img {
-    width: 30px;
-    height: 30px;
-    margin: 0px 10px; }
-  .logo span {
-    font-size: 1em;
-    font-family: 'Lobster', cursive;
-    font-family: 'Stylish', sans-serif;
-    font-family: 'Oswald', sans-serif; }
-  @media screen and (max-device-width: 480px) {
-    .logo {
-      width: 60%;
-      height: 100%; } }
-.data {
-  width: 15%;
-  height: 100%;
-  background-color: #701c45; }
-  .data img {
-    width: 30px;
-    height: 30px;
-    margin: 0px 5px; }
-  .data span {
-    font-size: 1em;
-    font-family: 'Lobster', cursive;
-    font-family: 'Stylish', sans-serif;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: white; }
-  @media screen and (max-device-width: 480px) {
-    .data {
-      width: 40%;
-      height: 100%; } }
 /***********************************************************************************
                                 Message: Success, Error
 ************************************************************************************/
