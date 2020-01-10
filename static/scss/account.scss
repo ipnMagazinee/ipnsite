@@ -109,7 +109,8 @@ form {
   overflow-y: auto;
   max-height: 400px;
   span{
-    @include size(90%, 50px);
+    @include size(90%, auto);
+    min-width: 50px;
     padding: 0px 10px;
     @include font1;
     border-radius: 10px;

@@ -244,7 +244,7 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
 ************************************************************************************/
 form{
     @include size(98%, auto);
-    @extend .dfc, .clm;
+    @extend .dfc, .clm, .jc;
     padding: 20px 0px;
     background-color: white;
     input[type='text'], input[type='password']{

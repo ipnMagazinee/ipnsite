@@ -29,9 +29,10 @@ StringBuilder.prototype.toString = function () {
 // Hide user options
 $(document).on('click', function(evt){
     if($(window).width() <= 480){ // Phone
-        id = evt.target.id;
-        switch (id) {
-            case 'id_user_data':
+        let element = evt.target;
+        data_id = $(element).data('id');
+        switch (data_id) {
+            case 'user_data':
                 if($('#id_user_options').is(':visible')){
                     $('#id_user_options').removeClass('dfc jc');
                     $('#id_user_options').addClass('dn');
@@ -41,7 +42,7 @@ $(document).on('click', function(evt){
                     $('#id_logo').hide();
                 }
                 break;
-            case 'id_user_options':
+            case 'user_options':
                 // do nothing
                 break;
             default:
@@ -51,9 +52,10 @@ $(document).on('click', function(evt){
                 break;
         }
     }else{ // PC
-        id = evt.target.id;
-        switch (id) {
-            case 'id_user_data':
+        let element = evt.target;
+        data_id = $(element).data('id');
+        switch (data_id) {
+            case 'user_data':
                 if($('#id_user_options').is(':visible')){
                     $('#id_user_options').removeClass('dfc jc');
                     $('#id_user_options').addClass('dn');
@@ -65,7 +67,7 @@ $(document).on('click', function(evt){
                     $('#id_user_options').addClass('dfc jc');
                 }
                 break;
-            case 'id_user_options':
+            case 'user_options':
                 // do nothing
                 break;
             default:

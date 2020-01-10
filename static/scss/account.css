@@ -182,7 +182,8 @@ form {
   max-height: 400px; }
   .list span {
     width: 90%;
-    height: 50px;
+    height: auto;
+    min-width: 50px;
     padding: 0px 10px;
     font-family: 'Lobster', cursive;
     font-family: 'Stylish', sans-serif;

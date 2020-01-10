@@ -17,7 +17,7 @@
   display: flex;
   align-items: center; }
 
-.jc, .user-data {
+.jc, form, .user-data {
   justify-content: center; }
 
 .clm, .options, .document a, .document, form, section {
