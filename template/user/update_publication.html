@@ -13,12 +13,12 @@
                 <span class="options-text">Publication type</span>
                 <div class="toggle">
                     {# ------------ Notice ------------------ #}
-                    {% if publication.type.name == 'notice' %}
-                        <input type="radio" name="publication" value="notice" id="id_notice" checked/>
+                    {% if publication.type.name == 'news' %}
+                        <input type="radio" name="publication" value="news" id="id_news" checked/>
                     {% else %}
-                        <input type="radio" name="publication" value="notice" id="id_notice"/>
+                        <input type="radio" name="publication" value="news" id="id_news"/>
                     {% endif %}
-                    <label for="id_notice">Notice</label>
+                    <label for="id_news">News</label>
                     {# ------------- Event ------------------ #}
                     {% if publication.type.name == 'event' %}
                         <input type="radio" name="publication" value="event" id="id_event" checked/>
@@ -82,12 +82,12 @@
                     {% endif %}
                     <label for="id_paae">PAAE</label>
                     {#---------------- External ---------------#}
-                    {% if publication.addressed_to.name == 'external' %}
-                        <input type="radio" name="address" value="external" id="id_external" checked/>
+                    {% if publication.addressed_to.name == 'externals' %}
+                        <input type="radio" name="address" value="externals" id="id_externals" checked/>
                     {% else %}
-                        <input type="radio" name="address" value="external" id="id_external" />
+                        <input type="radio" name="address" value="externals" id="id_externals" />
                     {% endif %}
-                    <label for="id_external">External</label>
+                    <label for="id_externals">External</label>
                 </div>
             </div>
             {# Tittle #}
@@ -111,7 +111,7 @@
                 <label for="id_image">
                     <img class="img" src="{% static 'img/image.png' %}">
                 </label>
-                <input type="file" name="image" id="id_image" accept="image/jpeg, image/png" multiple >
+                <input type="file" name="images" id="id_image" accept="image/jpeg, image/png" multiple >
                 <label id="id_label_image">Add an image (optional)</label>
             </div>
             {# Image pre-view #}

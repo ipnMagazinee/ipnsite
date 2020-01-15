@@ -47,7 +47,6 @@ $(document).on('click', '#id_btn_send', function(){
         });
         request.done(function(data){
             if(data.success){
-                console.log(data.url);
                 window.location = data.url;
             }else{
                 console.log(data.message);
@@ -73,7 +72,7 @@ function validate(elem, message){
 }
 
 /*
-    Update form
+    send Update form
 */
 $(document).on('click', '#id_btn_update', function(){
     // validations
@@ -94,10 +93,12 @@ $(document).on('click', '#id_btn_update', function(){
         request.done(function(data){
             if(data.success){ window.location = data.url;}
             else{console.log(data.message);}
+            console.log('done');
         });
         request.fail(function(jqXHR, textStatus){
             $('#id_message').addClass('msg-error');
             $('#id_message_text').html(message);
+            console.log('fail');
         });
     } else{
         $('#id_message').addClass('msg-error');

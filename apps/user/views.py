@@ -1,6 +1,6 @@
-from django.shortcuts import render
 
 # Create your views here.
+from PIL import Image
 from django.http import JsonResponse, Http404
 from django.core.exceptions import PermissionDenied
 from django.views.generic import ListView, View
@@ -16,7 +16,8 @@ class UserView(ListView):
 
     def get_queryset(self):
         """ The user just can see own publications """
-        return Publications.objects.filter(profile__name=self.kwargs.get('name'), visible=True).order_by('-create_at')
+        return Publications.objects.filter(profile__name=self.kwargs.get('name'), visible=True)\
+            .values('id', 'tittle', 'update_at', 'published').order_by('-update_at')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -32,7 +33,8 @@ class NewPublicationView(View):
 
     def get(self, request, *args, **kwargs):
         profile = Profiles.objects.get(name=self.kwargs.get('name'))
-        context = {'profile': profile}
+        context = dict()
+        context['profile'] = profile
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
@@ -47,7 +49,7 @@ class NewPublicationView(View):
         name_address = request.POST.get('address')
         address = AddressedTo.objects.get(name=name_address)
         file = request.FILES.get('file', False)
-        images = request.FILES.getlist('image', False)
+        images = request.FILES.getlist('images', False)
         try:
             publication = Publications.objects.create(profile_id=profile.id, tittle=tittle, description=description,
                                                       type_id=type.id, addressed_to_id=address.id)
@@ -56,11 +58,11 @@ class NewPublicationView(View):
                 publication.file_name = file.name
                 publication.save()
             if bool(images):
-                number = 0
                 for image in images:
-                    image_name = str(publication.id) + '_ ' + str(number)
-                    Images.objects.create(name=image_name, image=image, publication_id=publication.id)
-                    number += 1
+                    new_image = Images.objects.create(name=image.name, image=image, publication_id=publication.id)
+                    """ Resize image """
+                    image = Image.open(new_image.image.path)
+                    image.save(new_image.image.path, quality=50, optimize=True)
             data['url'] = reverse('user:user', args=[name])
             data['success'] = True
             data['message'] = ''
@@ -74,12 +76,13 @@ class UpdatePublicationView(View):
     template_name = 'user/update_publication.html'
 
     def get(self, request, *args, **kwargs):
+        context = dict()
         publication = Publications.objects.get(id=self.kwargs.get('pk'))
         profile = publication.profile
         images = Images.objects.filter(publication_id=publication.id)
-        context = {'publication': publication,
-                   'profile': profile,
-                   'images': images}
+        context['publication'] = publication
+        context['profile'] = profile
+        context['images'] = images
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
@@ -89,28 +92,27 @@ class UpdatePublicationView(View):
         tittle = request.POST.get('tittle')
         description = request.POST.get('description')
         name_type = request.POST.get('publication')
-        id_type = PublicationType.objects.get(name=name_type)
+        type = PublicationType.objects.get(name=name_type)
         name_address = request.POST.get('address')
-        id_address = AddressedTo.objects.get(name=name_address)
+        address = AddressedTo.objects.get(name=name_address)
         file = request.FILES.get('file', False)
-        images = request.FILES.getlist('image', False)
+        images = request.FILES.getlist('images', False)
         try:
             publication = Publications.objects.get(id=id_publication)
             publication.tittle = tittle
             publication.description = description
-            publication.type_id = id_type
-            publication.addressed_to_id = id_address
+            publication.type_id = type.id
+            publication.addressed_to_id = address.id
             publication.save()
             if bool(file):
                 publication.file = file
                 publication.file_name = file.name
                 publication.save()
             if bool(images):
-                number = 0
                 for image in images:
-                    image_name = str(publication.id) + '_ ' + str(number)
-                    Images.objects.create(name=image_name, image=image, publication_id=publication.id)
-                    number += 1
+                    new_image = Images.objects.create(name=image.name, image=image, publication_id=publication.id)
+                    image = Image.open(new_image.image.path)
+                    image.save(new_image.image.path, quality=50, optimize=True)
             data['url'] = reverse('user:user', args=[publication.profile.name])
             data['success'] = True
             data['message'] = ''

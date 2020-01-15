@@ -17,7 +17,7 @@ class EditorListView(ListView):
     paginate_by = 50
 
     def get_queryset(self):
-        return self.model.objects.filter(visible=True).order_by('-update_at')
+        return Publications.objects.filter(visible=True).values('id', 'tittle', 'update_at', 'reviewed').order_by('-update_at')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(EditorListView, self).get_context_data()

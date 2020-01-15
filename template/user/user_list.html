@@ -9,7 +9,7 @@
         {% for object in object_list %}
             <div class="object-list">
                 <a class="tittle" href="{% url 'user:update_publication' object.id %}"><span>{{ object.tittle }}</span></a>
-                <span class="date">{{ object.create_at }}</span>
+                <span class="date">{{ object.update_at }}</span>
                 <div class="images-list">
                     <img src="{% static 'img/btn_delete.png' %}"
                          class="cursor delete"

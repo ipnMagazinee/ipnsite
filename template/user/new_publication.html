@@ -13,8 +13,8 @@
                 <span class="options-text">Publication type</span>
                 <div class="toggle">
                     {# Notice #}
-                    <input type="radio" name="publication" value="notice" id="id_notice" checked/>
-                    <label for="id_notice">Notice</label>
+                    <input type="radio" name="publication" value="news" id="id_news" checked/>
+                    <label for="id_news">News</label>
                     {# Event #}
                     <input type="radio" name="publication" value="event" id="id_event"/>
                     <label for="id_event">Event</label>
@@ -34,7 +34,7 @@
                 <span class="options-text">Addressed to</span>
                 <div class="toggle">
                     {# Community #}
-                    <input type="radio" name="address" value="community" id="id_community" checked="checked" />
+           |         <input type="radio" name="address" value="community" id="id_community" checked="checked" />
                     <label for="id_community">Community</label>
                     {# Students #}
                     <input type="radio" name="address" value="students" id="id_students" />
@@ -46,8 +46,8 @@
                     <input type="radio" name="address" value="paae" id="id_paae" />
                     <label for="id_paae">PAAE</label>
                     {# External #}
-                    <input type="radio" name="address" value="external" id="id_external" />
-                    <label for="id_external">External</label>
+                    <input type="radio" name="address" value="externals" id="id_externals" />
+                    <label for="id_externals">External</label>
                 </div>
             </div>
             {# Tittle #}
@@ -67,7 +67,7 @@
                 <label for="id_image">
                     <img class="img" src="{% static 'img/image.png' %}">
                 </label>
-                <input type="file" name="image" id="id_image" accept="image/jpeg, image/png" multiple >
+                <input type="file" name="images" id="id_image" accept="image/jpeg, image/png" multiple >
                 <label id="id_label_image">Add an image (optional)</label>
             </div>
             {# Image preview #}

@@ -12,7 +12,7 @@ class DirectionListView(ListView):
     model = Publications
 
     def get_queryset(self):
-        return self.model.objects.filter(visible=True).order_by('update_at')
+        return Publications.objects.filter(visible=True).values('id', 'tittle', 'update_at', 'approved').order_by('-update_at')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(DirectionListView, self).get_context_data()

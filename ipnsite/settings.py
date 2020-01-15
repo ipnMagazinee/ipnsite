@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'ipnsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ipn_db',
-        'USER': 'ipn_user',
-        'PASSWORD': 'ipnpwd',
+        'NAME': 'communication_db',
+        'USER': 'communication_user',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -147,8 +147,9 @@ MEDIA_URL = '/media/'
 
 # Media dirs
 PROFILE_IMAGE = MEDIA_ROOT + '/profiles'
-PUBLISHED_DOCUMENTS = MEDIA_ROOT + '/documents'
-PUBLISHED_IMAGES = MEDIA_ROOT + '/image'
+DOCUMENTS = MEDIA_ROOT + '/documents'
+IMAGES = MEDIA_ROOT + '/images'
+IMAGES_PREVIEW = MEDIA_ROOT + '/images_preview'
 
 # Sass files (scss)
 STATICFILES_FINDERS = [
