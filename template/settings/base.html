@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load sass_tags %}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <link href="{% sass_src 'scss/settings.scss' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+{% block content %}
+{% endblock %}
+
+{% if profile.role == 1 %}
+    <a href="{% url 'user:user' profile.name %}"><img class="floating-button" src="{% static 'img/btn_back.png' %}"></a>
+{% elif profile.role == 2 %}
+    <a href="{% url 'editor:editor' profile.name %}"><img class="floating-button" src="{% static 'img/btn_back.png' %}"></a>
+{% elif profile.role == 3 %}
+    <a href="{% url 'publisher:publisher' profile.name %}"><img class="floating-button" src="{% static 'img/btn_back.png' %}"></a>
+{% elif profile.role == 4 %}
+    <a href="{% url 'direction:direction' profile.name %}"><img class="floating-button" src="{% static 'img/btn_back.png' %}"></a>
+{% endif %}
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="{% static 'js/base.js' %}"></script>
+{% block script %}
+{% endblock %}
+</html>

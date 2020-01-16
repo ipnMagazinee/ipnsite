@@ -74,6 +74,22 @@ html, body {
     font-family: 'Stylish', sans-serif;
     font-family: 'Open Sans Condensed', sans-serif; }
 
+/*
+    Button send form
+*/
+.btn-send {
+  width: 100px;
+  height: 30px;
+  background-color: #4B9DEA;
+  border: 0px;
+  border-radius: 10px;
+  color: white;
+  margin: 20px 0px;
+  outline: 0px; }
+  .btn-send:active {
+    opacity: 1;
+    box-shadow: 0 0 10px #66b3fb; }
+
 html, body {
   margin: 0px;
   padding: 0px;
@@ -138,7 +154,7 @@ form {
   form button {
     width: 95%;
     height: 35px;
-    margin: 5px 0px;
+    margin: 5px 0px 20px 0px;
     padding: 0px 10px;
     background-color: #701c45;
     border: 1px solid #701c45;
@@ -152,6 +168,8 @@ form {
     width: 30px;
     height: 30px;
     margin: 0px 5px; }
+  form progress {
+    display: none; }
 
 .sld {
   color: #abb2b9; }
@@ -213,5 +231,32 @@ form {
     width: 80%;
     height: auto;
     padding: 30px 0px; } }
+
+/************************************************/
+/*        password progress bar                 */
+/************************************************/
+progress {
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin: 0;
+  background: none;
+  border: 0;
+  border-radius: 50px;
+  text-align: left;
+  font-family: "Helvetica Neue", arial, sans-serif;
+  font-size: 15px; }
+
+progress::-webkit-progress-bar {
+  height: 5px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #dadada;
+  border-radius: 100px; }
+
+progress::-webkit-progress-value {
+  background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)), -webkit-linear-gradient(left, #09c, #f44);
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%; }
 
 /*# sourceMappingURL=account.css.map */

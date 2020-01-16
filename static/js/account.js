@@ -83,7 +83,7 @@ $(document).on('click', '#btn_signUp', function () {
    let conf_pwd = $('#id_conf_password').val();
    let area = $('#id_area').val();
    let dep = $('#id_department').val();
-
+   let progress_val= $('#id_progress').val();
    let form = $('#id_signUp_form');
 
    // Empty inputs validation
@@ -98,11 +98,16 @@ $(document).on('click', '#btn_signUp', function () {
         }
     }
     message += ValidateEmpty(pwd, 'Enter password.');
+    if (pwd.length !== 0){
+        if(progress_val <= 30){
+            message += 'Your password is very easy.';
+        }
+    }
     if(conf_pwd.length === 0){
         message +=  'Enter confirm password.';
     }
     else{
-        if(pwd !== conf_pwd){ message += 'Passwords do not match'; }
+        if(pwd !== conf_pwd){ message += 'Passwords do not match.'; }
     }
     message += ValidateEmpty(area, 'Enter Area.');
     message += ValidateEmpty(dep, 'Enter Department.');
@@ -119,9 +124,6 @@ $(document).on('click', '#btn_signUp', function () {
         });
         request.done(function (data) {
             if(data.success) {
-                $('#id_message').addClass('msg-success');
-                $('#id_message_text').html(data.message);
-                console.log(data.url);
                 window.location = data.url; // Redirect to user profile
             }
             else {
@@ -172,4 +174,28 @@ $(document).on('click', '#btn_login', function () {
     request.fail(function(rqHX, textStatus){
         console.log('Error ' + textStatus)
     });
+});
+
+/*
+      password progress bar
+*/
+$('#id_password').keyup(function(e) {
+    $('#id_progress').show();
+     var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+     var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+     var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+     if (false == enoughRegex.test($(this).val())) {
+        $('#id_progress').val(5);
+     } else if (strongRegex.test($(this).val())) {
+        $('#id_progress').val(100);
+     } else if (mediumRegex.test($(this).val())) {
+        $('#id_progress').val(85);
+     } else {
+        $('#id_progress').val(30);
+     }
+     if($(this).val() == '')
+     {
+        $('#id_progress').hide();
+     }
+     return true;
 });

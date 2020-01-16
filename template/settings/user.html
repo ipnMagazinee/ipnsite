@@ -1,0 +1,20 @@
+
+
+{% extends 'settings/base.html '%}
+{% load static %}
+
+{% block content %}
+<section>
+    <form method="post" action="#" spellcheck="false" id="id_form_user">
+        {% if profile.image %}
+            <img src="{{ profile.image.url }}">
+        {% else %}
+            <img src="{% static 'img/profile.svg' %}">
+        {% endif%}
+        <input type="text" placeholder="{{ profile.name }}" value="">
+        <span class="text">{{ profile.area.name }}</span>
+        <span class="text">{{ profile.department.name }}</span>
+        <button class="btn-send" type="button">Save</button>
+    </form>
+</section>
+{% endblock %}

@@ -12,14 +12,14 @@
 .dn {
   display: none; }
 
-.dfc {
+.dfc, form, section, html, body {
   display: flex;
   align-items: center; }
 
-.jc {
+.jc, form, html, body {
   justify-content: center; }
 
-.clm {
+.clm, form, section, html, body {
   flex-direction: column; }
 
 .row {
@@ -101,4 +101,44 @@ html, body {
   right: 10px;
   z-index: 2; }
 
-/*# sourceMappingURL=base.css.map */
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #ebedef; }
+
+section {
+  width: 40%;
+  height: 85%;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 500ms; }
+
+form {
+  width: 90%;
+  height: 90%; }
+  form input[type='text'] {
+    width: 80%;
+    height: auto;
+    margin: 10px 0px;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.5em;
+    color: #34495e;
+    text-align: center;
+    border: 1px solid #abb2b9;
+    border-radius: 10px;
+    outline: 0px; }
+  form span {
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.8em;
+    color: #808b96; }
+  form img {
+    width: 200px;
+    height: 200px; }
+
+/*# sourceMappingURL=settings.css.map */
