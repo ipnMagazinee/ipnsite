@@ -12,7 +12,7 @@
 .dn {
   display: none; }
 
-.dfc, form, section, html, body {
+.dfc, .photo, form, section, html, body {
   display: flex;
   align-items: center; }
 
@@ -34,13 +34,6 @@
 /***********************************************************************************
                                       Header
 ************************************************************************************/
-html, body {
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  height: auto;
-  background-color: #ebedef; }
-
 /***********************************************************************************
                                 Message: Success, Error
 ************************************************************************************/
@@ -113,8 +106,12 @@ section {
   height: 85%;
   background-color: white;
   border-radius: 10px;
-  transition: all 500ms; }
-
+  transition: all 500ms;
+  margin: 10px; }
+  @media screen and (max-device-width: 480px) {
+    section {
+      width: 95%;
+      height: 95%; } }
 form {
   width: 90%;
   height: 90%; }
@@ -135,10 +132,24 @@ form {
     font-family: 'Lobster', cursive;
     font-family: 'Stylish', sans-serif;
     font-family: 'Heebo', sans-serif;
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: #808b96; }
-  form img {
+  form input[type='file'] {
+    display: none; }
+
+.photo {
+  width: auto;
+  height: auto;
+  position: relative; }
+  .photo-image {
     width: 200px;
-    height: 200px; }
+    height: 200px;
+    border-radius: 50%; }
+  .photo-camera {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px; }
 
 /*# sourceMappingURL=settings.css.map */

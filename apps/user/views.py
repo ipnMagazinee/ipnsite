@@ -24,6 +24,8 @@ class UserView(ListView):
         profile = Profiles.objects.get(name=self.kwargs.get('name'))
         if not profile.login:
             raise PermissionDenied
+        elif profile.role != 1:
+            raise PermissionDenied
         context['profile'] = profile
         return context
 

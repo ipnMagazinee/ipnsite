@@ -19,6 +19,8 @@ class DirectionListView(ListView):
         profile = Profiles.objects.get(name=self.kwargs.get('name'))
         if not profile.login:
             raise PermissionDenied
+        elif profile.role != 4:
+            raise PermissionDenied
         context['profile'] = profile
         return context
 

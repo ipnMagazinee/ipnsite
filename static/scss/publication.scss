@@ -2,6 +2,13 @@
 @import 'base.scss';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
+html, body{
+  margin: 0px;
+  padding: 0px;
+  @include size(100%, auto);
+  background-color: $bg-color;
+}
+
 /***********************************************************************************
                           Radio button: User
 ************************************************************************************/
@@ -43,6 +50,7 @@ header{
     img{ // user image
         @include size(30px, 30px);
         margin: 0px 5px;
+        border-radius: 50%;
     }
     span{ // user name
         font-size: 1em;
@@ -305,15 +313,19 @@ form{
     }
 }
 .document{
-    @include size(auto, auto);
-    @extend .dfc, .clm;
+    @include size(30%, auto);
+    @extend .dfc, .jc, .row;
     margin: 10px 0px;
+    padding: 5px 10px;
+    border: solid 1px #DDD;
+    border-radius: 10px;
     a{
-        @extend .dfc, .clm;
+        @extend .dfc, .row;
         text-decoration:none;
     }
     img{
-        @include size(50px, 50px);
+        @include size(30px, 30px);
+        margin: 0px 10px;
     }
     span{
         @extend .dfc;
@@ -326,6 +338,12 @@ form{
         font-family: Arial;
         font-size: 1em;
         color: rgb(44, 62, 80 );
+    }
+    @media screen and (max-device-width: 480px){
+        @include size(60%, auto);
+        label{
+            font-size: 0.9em;
+        }
     }
 }
 

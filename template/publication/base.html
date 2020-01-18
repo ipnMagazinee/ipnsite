@@ -35,7 +35,7 @@
     </div>
     <div class="user-options" id="id_user_options" data-id="user_options">
         <a href="{% url 'account:signOff' profile.name %}" data-id="user_options" ><span>SignOff</span></a>
-        <a href="{% url 'settings:user' profile.name %}"><img data-id="user_options" src="{% static 'img/settings.svg' %}"></a>
+        <a href="{% url 'settings:settings' profile.name %}"><img data-id="user_options" src="{% static 'img/settings.svg' %}"></a>
     </div>
     {% csrf_token %}
 </header>

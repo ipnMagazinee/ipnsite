@@ -17,13 +17,13 @@
   display: flex;
   align-items: center; }
 
-.jc, .form-data, form, .user-data {
+.jc, .document, .form-data, form, .user-data {
   justify-content: center; }
 
-.clm, .options, .document a, .document, form, section {
+.clm, .options, form, section {
   flex-direction: column; }
 
-.row {
+.row, .document a, .document {
   flex-direction: row; }
 
 .row-r, .images-list {
@@ -35,13 +35,6 @@
 /***********************************************************************************
                                       Header
 ************************************************************************************/
-html, body {
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  height: auto;
-  background-color: #ebedef; }
-
 /***********************************************************************************
                                 Message: Success, Error
 ************************************************************************************/
@@ -102,6 +95,13 @@ html, body {
   right: 10px;
   z-index: 2; }
 
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: auto;
+  background-color: #ebedef; }
+
 /***********************************************************************************
                           Radio button: User
 ************************************************************************************/
@@ -141,7 +141,8 @@ header {
   .user-data img {
     width: 30px;
     height: 30px;
-    margin: 0px 5px; }
+    margin: 0px 5px;
+    border-radius: 50%; }
   .user-data span {
     font-size: 1em;
     font-family: 'Lobster', cursive;
@@ -383,14 +384,18 @@ form {
         width: 90%;
         height: 200px; } }
 .document {
-  width: auto;
+  width: 30%;
   height: auto;
-  margin: 10px 0px; }
+  margin: 10px 0px;
+  padding: 5px 10px;
+  border: solid 1px #DDD;
+  border-radius: 10px; }
   .document a {
     text-decoration: none; }
   .document img {
-    width: 50px;
-    height: 50px; }
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px; }
   .document span {
     font-family: Arial;
     font-size: 1em;
@@ -399,7 +404,12 @@ form {
     font-family: Arial;
     font-size: 1em;
     color: #2c3e50; }
-
+  @media screen and (max-device-width: 480px) {
+    .document {
+      width: 60%;
+      height: auto; }
+      .document label {
+        font-size: 0.9em; } }
 /**/
 .options {
   width: 100%;

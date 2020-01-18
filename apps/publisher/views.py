@@ -15,13 +15,15 @@ class PublisherView(ListView):
     model = Publications
 
     def get_queryset(self):
-        return Publications.objects.filter(visible=True).values('id', 'tittle', 'update_at', 'reviewed',
-                                                                'published', 'approved', 'urgent').order_by('-update_at')
+        return Publications.objects.filter(visible=True).values('id', 'tittle', 'create_at', 'reviewed',
+                                                                'published', 'approved', 'urgent').order_by('-create_at')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(PublisherView, self).get_context_data()
         profile = Profiles.objects.get(name=self.kwargs.get('name'))
         if not profile.login:
+            raise PermissionDenied
+        elif profile.role != 3:
             raise PermissionDenied
         context['profile'] = profile
         return context

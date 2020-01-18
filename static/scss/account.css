@@ -34,13 +34,6 @@
 /***********************************************************************************
                                       Header
 ************************************************************************************/
-html, body {
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  height: auto;
-  background-color: #ebedef; }
-
 /***********************************************************************************
                                 Message: Success, Error
 ************************************************************************************/
@@ -90,6 +83,17 @@ html, body {
     opacity: 1;
     box-shadow: 0 0 10px #66b3fb; }
 
+/*
+    Floating Button
+*/
+.floating-button {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2; }
+
 html, body {
   margin: 0px;
   padding: 0px;
@@ -103,7 +107,12 @@ section {
   background-color: white;
   border-radius: 10px;
   transition: all 500ms; }
-
+  @media screen and (max-device-width: 480px) {
+    section {
+      width: 95%;
+      height: 95%;
+      background-color: white;
+      border-radius: 10px; } }
 .tittle {
   font-size: 2em;
   font-family: 'Lobster', cursive;
@@ -222,11 +231,6 @@ form {
   Login media
 */
 @media screen and (max-device-width: 480px) {
-  section {
-    width: 95%;
-    height: 95%;
-    background-color: white;
-    border-radius: 10px; }
   .list {
     width: 80%;
     height: auto;

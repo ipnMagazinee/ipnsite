@@ -9,12 +9,16 @@ html, body{
   background-color: $bg-color;
 }
 
-section {
+section{
   @include size(40%, 85%);
   @extend .dfc, .clm;
   background-color: white;
   border-radius: 10px;
   transition: all 500ms;
+  margin: 10px;
+  @media screen and (max-device-width: 480px) {
+    @include size(95%, 95%);
+  }
 }
 
 form{
@@ -33,10 +37,27 @@ form{
     }
     span{
         @include font3;
-        font-size: 0.8em;
+        font-size: 0.9em;
         color: rgb(128, 139, 150 );
     }
-    img{
-        @include size(200px, 200px);
+    input[type='file']{
+        display: none;
+    }
+
+}
+
+.photo{
+    @include size(auto, auto);
+    @extend .dfc;
+    position: relative;
+    &-image{
+         @include size(200px, 200px);
+         border-radius: 50%;
+    }
+    &-camera{
+        @include size(50px, 50px);
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
     }
 }
