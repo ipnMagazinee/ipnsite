@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps.publisher',
     'apps.direction',
     'apps.settings',
+    'apps.administrator',
     #  django apps
     'sass_processor',
     'django.contrib.admin',

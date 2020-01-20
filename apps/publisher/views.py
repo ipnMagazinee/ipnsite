@@ -58,6 +58,6 @@ def download_image(request, image_id):
     content_type = mimetypes.guess_type(img.image.name)[0]  # Use mimetypes to get file type
     response = HttpResponse(wrapper, content_type=content_type)  # Use mimetypes to get file type
     response['Content-Length'] = img.image.size
-    image_name = Image.open(img.image)  # Use to get file type
-    response['Content-Disposition'] = 'attachment; filename=%s.%s' % (img.name, image_name.format)
+    #  image_name = Image.open(img.image)  # Use to get file type
+    response['Content-Disposition'] = 'attachment; filename=%s' % img.name
     return response

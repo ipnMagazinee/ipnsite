@@ -24,10 +24,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # my urls
     path('account/', include('apps.account.urls')),  # account
-    path('user/', include('apps.user.urls')),  # user
-    path('editor/', include('apps.editor.urls')),  # editor
-    path('publisher/', include('apps.publisher.urls')),  # publisher
-    path('direction/', include('apps.direction.urls')),  # publisher
+    path('user/', include('apps.user.urls')),  # user 1
+    path('editor/', include('apps.editor.urls')),  # editor 2
+    path('publisher/', include('apps.publisher.urls')),  # publisher 3
+    path('direction/', include('apps.direction.urls')),  # direction 4
     path('settings/', include('apps.settings.urls')),  # settings
+    path('administrator/', include('apps.administrator.urls')),  # administrator 0
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
