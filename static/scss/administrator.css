@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo|Lobster|Stylish&display=swap");
+/********************************************************************************
+                                    Mixins
+********************************************************************************/
+/***********************************************************************************
+                                        Effects
+ **********************************************************************************/
+.blur {
+  filter: blur(5px);
+  -webkit-filter: blur(5px); }
+
+.dn {
+  display: none; }
+
+.dfc, .search-result, .search-icon, .search, form, section, html, body {
+  display: flex;
+  align-items: center; }
+
+.jc, .search, form, html, body {
+  justify-content: center; }
+
+.clm, .search-result, form, section, html, body {
+  flex-direction: column; }
+
+.row, .search {
+  flex-direction: row; }
+
+.row-r, .search-icon {
+  flex-direction: row-reverse; }
+
+.cursor {
+  cursor: pointer; }
+
+/***********************************************************************************
+                                      Header
+************************************************************************************/
+/***********************************************************************************
+                                Message: Success, Error
+************************************************************************************/
+.msg-content, .msg-error, .msg-success {
+  width: auto;
+  height: auto;
+  border: 0px;
+  margin: 10px;
+  padding: 5px 15px;
+  border-radius: 20px; }
+
+.msg-success {
+  background-color: #d4efdf; }
+  .msg-success span {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    color: #52be80;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif; }
+
+.msg-error {
+  background-color: #f2d7d5; }
+  .msg-error span {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    color: #cd6155;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif; }
+
+/*
+    Button send form
+*/
+.btn-send {
+  width: 100px;
+  height: 30px;
+  background-color: #4B9DEA;
+  border: 0px;
+  border-radius: 10px;
+  color: white;
+  margin: 20px 0px;
+  outline: 0px; }
+  .btn-send:active {
+    opacity: 1;
+    box-shadow: 0 0 10px #66b3fb; }
+
+/*
+    Floating Button
+*/
+.floating-button {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2; }
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #ebedef; }
+
+section {
+  width: 40%;
+  height: 85%;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 500ms;
+  margin: 10px; }
+  @media screen and (max-device-width: 480px) {
+    section {
+      width: 95%;
+      height: 95%;
+      background-color: white;
+      border-radius: 10px; } }
+form {
+  width: 90%;
+  height: 90%; }
+  form input[type="text"] {
+    width: 70%;
+    height: 20px;
+    margin: 5px 0px;
+    padding: 0px 10px;
+    color: #2c3e50;
+    border: 1px solid #abb2b9;
+    border-radius: 10px;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1em;
+    outline: 0px; }
+
+.search {
+  width: 90%;
+  height: auto;
+  margin: 20px 0px 0px 0px; }
+  .search input[type="text"] {
+    width: 80%;
+    height: 30px;
+    margin: 5px 0px;
+    padding: 0px 10px;
+    color: #2c3e50;
+    border-style: solid;
+    border-width: 1px 0px 1px 1px;
+    border-color: #abb2b9;
+    border-radius: 10px 0px 0px 10px;
+    font-family: 'Lobster', cursive;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1em;
+    outline: 0px; }
+  .search-icon {
+    width: 10%;
+    height: 30px;
+    color: #2c3e50;
+    border-style: solid;
+    border-width: 1px 1px 1px 0px;
+    border-color: #abb2b9;
+    border-radius: 0px 10px 10px 0px; }
+    .search-icon img {
+      width: 25px;
+      height: 25px;
+      padding: 0px 5px; }
+  .search-result {
+    width: 85%;
+    height: auto;
+    border: 1px solid #abb2b9;
+    border-radius: 10px; }
+    .search-result span {
+      font-family: 'Lobster', cursive;
+      font-family: 'Stylish', sans-serif;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1em;
+      color: #566573; }
+
+/*
+    Radio Button Effect
+*/
+/* Radio Button Effect and Format */
+/* MIXINS */
+.toggle {
+  margin: 10px 0em;
+  box-sizing: border-box;
+  font-size: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch; }
+  .toggle input {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -9999px; }
+  .toggle input + label {
+    margin: 0;
+    padding: 0.2em 1em;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border: solid 1px #DDD;
+    background-color: #FFF;
+    font-size: 1rem;
+    line-height: 140%;
+    font-weight: 500;
+    font-family: Arial;
+    color: #2C3E50;
+    text-align: center;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    transition: border-color .15s ease-out, color .25s ease-out, background-color .15s ease-out, box-shadow .15s ease-out;
+    /* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
+    /*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
+    /* ----- */ }
+    .toggle input + label:first-of-type {
+      border-radius: 6px 0 0 6px;
+      border-right: none; }
+    .toggle input + label:last-of-type {
+      border-radius: 0 6px 6px 0;
+      border-left: none; }
+    @media screen and (max-device-width: 480px) {
+      .toggle input + label {
+        padding: 0.2em 0.5em;
+        font-size: 0.8rem; } }
+  .toggle input:hover + label {
+    border-color: #213140; }
+  .toggle input:checked + label {
+    background-color: #4B9DEA;
+    color: #FFF;
+    box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+    border-color: #4B9DEA;
+    z-index: 1; }
+  .toggle input:focus + label {
+    outline: dotted 1px #CCC;
+    outline-offset: .45rem; }
+
+.options {
+  font-family: 'Lobster', cursive;
+  font-family: 'Stylish', sans-serif;
+  font-family: 'Heebo', sans-serif;
+  font-size: 1em;
+  color: #2C3E50; }
+
+/*# sourceMappingURL=administrator.css.map */

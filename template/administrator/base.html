@@ -1,22 +1,61 @@
 
 <!DOCTYPE html>
+{% load static %}
+{% load sass_tags %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Administrator</title>
+    <link href="{% sass_src 'scss/administrator.scss' %}" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <section>
-        <input type="text" placeholder="Search">
-        <form method="post" action="#">
-            <span>Permission</span>
-            <div>per</div>
-            <span>Area</span>
-            <div>area</div>
-            <span>Department</span>
-            <div>dep </div>
-            <button>Send</button>
+        <div class="search">
+            <input type="text" placeholder="Search"
+                   spellcheck="false" id="id_search"
+                   data-url="{% url 'administrator:get_username' %}">
+            <div class="search-icon">
+                <img src="{% static 'img/search.svg' %}">
+            </div>
+        </div>
+        <div class="search-result" id="id_search_result">
+        </div>
+        <form method="post" action="#" id="id_form_permission">
+            {% csrf_token %}
+            <span class="options">Permission</span>
+            {# Permission #}
+            <div class="toggle">
+                    {# User #}
+                    <input type="radio" name="permission" value="user" id="id_user" checked/>
+                    <label for="id_user">User</label>
+                    {# Editor #}
+                    <input type="radio" name="permission" value="editor" id="id_editor"/>
+                    <label for="id_editor">Editor</label>
+                    {# Publisher #}
+                    <input type="radio" name="permission" value="publisher" id="id_publisher" />
+                    <label for="id_publisher">Publisher</label>
+                    {# Direction #}
+                    <input type="radio" name="permission" value="direction" id="id_direction" />
+                    <label for="id_direction">Direction</label>
+                </div>
+            {# Permission #}
+            <div>
+                <input type="text" placeholder="Area">
+                <img src="{% static 'img/circle.png' %}">
+            </div>
+            <div>
+                <input type="text" placeholder="Department">
+                <img src="{% static 'img/circle.png' %}">
+            </div>
+            <button type="button" class="btn_send" id="btn_send">Send</button>
+
         </form>
     </section>
+    <div id="id_message">
+        <span id="id_message_text"></span>
+    </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'js/base.js' %}"></script>
+<script src="{% static 'js/administrator.js' %}"></script>
 </html>
